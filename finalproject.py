@@ -38,6 +38,12 @@ class Player():
     def move(self, speed):
         #moves with each arrow key
         self.x_point = self.x_point + speed
+
+class Obstacle():
+    def __init__(self, width, color):
+        self.width=width
+        self.color=color
+
  
 # Loop until the user clicks the close button.
 done = False
