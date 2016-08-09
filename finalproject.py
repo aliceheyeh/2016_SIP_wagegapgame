@@ -53,10 +53,22 @@ pygame.display.set_caption("Women")
 
         
 
+<<<<<<< HEAD
 #     def move(self, x_point):
 #         #moves with each arrow key
 #         self.x_point = self.x_point + speed
         
+=======
+    def move(self, speed):
+        #moves with each arrow key
+        self.x_point = self.x_point + speed
+
+class Obstacle():
+    def __init__(self, width, color):
+        self.width=width
+        self.color=color
+
+>>>>>>> ed196a40f5c81f070b2c063ad84a7dd80bfa8624
  
 # Loop until the user clicks the close button.
 done = False
