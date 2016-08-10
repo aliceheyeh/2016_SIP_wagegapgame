@@ -31,18 +31,25 @@ screen = pygame.display.set_mode(WINDOW_SIZE)
  
 # Set title of screen
 pygame.display.set_caption("Women")
-
-class Player():
+width = 50
+height = 50
+class Player(pygame.sprite.Sprite):
    
 
     # Constructor function
+
     def __init__(self, x_point, y_point):
         # Make our top-left corner the passed-in location.
+        pygame.sprite.Sprite.__init__(self)
+
         self.x_point=x_point
         self.y_point=y_point
+        self.image=pygame.Surface([width,height])
+        self.image.fill(BLUE)
+        self.rect=self.image.get_rect()
 
     def draw(self):
-        pygame.draw.circle(screen, BLUE, (self.x_point,self.y_point), 30)
+        pygame.draw.circle(screen,BLUE,(self.x_point,self.y_point),20)
     
 
     def moveup(self) :
@@ -56,8 +63,8 @@ class Player():
         self.x_point=self.x_point + WIDTH
         
     def reset_player(self):
-        self.circle.x = 670
-        self.circle.y = 470
+        self.circle.x = 680
+        self.circle.y = 480
 
     # Find a new position for the player
     def update(self):
@@ -92,15 +99,36 @@ class Coins():
 
 
 
+<<<<<<< HEAD
+class Obstacle(pygame.sprite.Sprite):
+   
+    
+=======
 class Obstacle():
+>>>>>>> b5bfee202b9f16a90993a5cac27361dae4f72718
     def __init__(self, x_point, y_point, width, height, color):
+        super().__init__()
         self.x_point=x_point
         self.y_point=y_point
         self.width=width
         self.height=height
         self.color=color
+
     def draw(self):
         pygame.draw.rect(screen, self.color, [self.x_point, self.y_point, self.width, self.height])
+<<<<<<< HEAD
+# <<<<<<< HEAD
+player1=Player(670,470)
+# =======
+# >>>>>>> 77d5fb4ce766851c53aa100af8168880c2327e71
+
+# collision = pygame.sprite.collide_rect(Player,Obstacle):
+
+# if pygame.sprite.collide_rect 
+
+#print(pygame.sprite.collide_rect(Player,Obstacle))
+ 
+=======
 
 #<<<<<<< HEAD
 player1=Player(670,470)
@@ -112,6 +140,7 @@ player1=Player(670,470)
 
 
 
+<<<<<<< HEAD
 Coin1=Coins(30, 50)
 Coin2=Coins(20, 700)
 Coin3=Coins(400, 220)
@@ -120,6 +149,15 @@ Coin5=Coins(500,30)
 Coin6=Coins(300,20)
 Coin7=Coins (200, 400)
 Coin8=Coins(680,220)
+=======
+Coin1=Coins(200, 300)
+Coin2=Coins(500, 20)
+Coin3=Coins(30,400)
+Coin4= Coins(200,50)
+Coin5=Coins(200, 70)
+Coin6=Coins(50,400)
+>>>>>>> b5bfee202b9f16a90993a5cac27361dae4f72718
+>>>>>>> df677d46dd731dddbbb81b119dc0234a6677a3ff
 wall1=Obstacle(595, 380, 106, 60,BLACK)
 wall2=Obstacle(488, 380, 106, 60,BLACK)
 wall3=Obstacle(272, 379, 106, 60,BLACK)
@@ -173,6 +211,13 @@ while not done:
                               (MARGIN + HEIGHT) * row + MARGIN,
                               WIDTH,
                               HEIGHT])
+<<<<<<< HEAD
+# <<<<<<< HEAD
+    player1.draw()
+   
+# =======
+
+=======
 
 #<<<<<<< HEAD
     player1.draw()
@@ -187,8 +232,12 @@ while not done:
     Coin4.draw()
     Coin5.draw()
     Coin6.draw()
+<<<<<<< HEAD
     Coin7.draw()
     Coin8.draw()
+=======
+>>>>>>> b5bfee202b9f16a90993a5cac27361dae4f72718
+>>>>>>> df677d46dd731dddbbb81b119dc0234a6677a3ff
     wall1.draw()   
     wall2.draw()
     wall3.draw()
@@ -197,6 +246,11 @@ while not done:
     wall6.draw()
     wall7.draw()
     wall8.draw()
+<<<<<<< HEAD
+# >>>>>>> 77d5fb4ce766851c53aa100af8168880c2327e71
+
+=======
+>>>>>>> b5bfee202b9f16a90993a5cac27361dae4f72718
     wall9.draw()
     wall10.draw()
     wall11.draw()
