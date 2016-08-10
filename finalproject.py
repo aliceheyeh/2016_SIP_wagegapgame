@@ -103,10 +103,14 @@ wall2=Obstacle(488, 380, 106, 60,BLACK)
 wall3=Obstacle(272, 379, 106, 60,BLACK)
 wall4=Obstacle(325, 438, 53, 60,BLACK)
 wall5=Obstacle(272, 318, 106, 60,BLACK)
+wall6=Obstacle(542, 191, 106, 124,BLACK)
+wall7=Obstacle(542, 65, 106, 60,BLACK)
+wall8=Obstacle(380, 2, 106, 124,BLACK)
 
-wall6=Obstacle(542, 254, 106, 60,BLACK)
-wall7=Obstacle(272, 318, 106, 60,BLACK)
-wall8=Obstacle(272, 318, 106, 60,BLACK)
+wall9=Obstacle(433, 127, 53, 63,BLACK)
+wall10=Obstacle(379, 2, 106, 124,BLACK)
+wall11=Obstacle(379, 2, 106, 124,BLACK)
+wall12=Obstacle(379, 2, 106, 124,BLACK)
 
 # Loop until the user clicks the close button.
 done = False
@@ -154,10 +158,14 @@ while not done:
     wall3.draw()
     wall4.draw()
     wall5.draw()
-    
     wall6.draw()
     wall7.draw()
     wall8.draw()
+
+    wall9.draw()
+    wall10.draw()
+    wall11.draw()
+    wall12.draw()
 
    # Limit to 60 frames per second
     clock.tick(60)
