@@ -97,15 +97,10 @@ class Coins():
         def draw(self):
             pygame.draw.circle(screen, YELLOW, (self.x_pos, self.y_pos), 10, 0)
 
-
-
-<<<<<<< HEAD
-class Obstacle(pygame.sprite.Sprite):
-   
     
-=======
+
 class Obstacle():
->>>>>>> b5bfee202b9f16a90993a5cac27361dae4f72718
+
     def __init__(self, x_point, y_point, width, height, color):
         super().__init__()
         self.x_point=x_point
@@ -116,7 +111,7 @@ class Obstacle():
 
     def draw(self):
         pygame.draw.rect(screen, self.color, [self.x_point, self.y_point, self.width, self.height])
-<<<<<<< HEAD
+
 # <<<<<<< HEAD
 player1=Player(670,470)
 # =======
@@ -128,7 +123,7 @@ player1=Player(670,470)
 
 #print(pygame.sprite.collide_rect(Player,Obstacle))
  
-=======
+
 
 #<<<<<<< HEAD
 player1=Player(670,470)
@@ -140,24 +135,19 @@ player1=Player(670,470)
 
 
 
-<<<<<<< HEAD
+
 Coin1=Coins(30, 50)
-Coin2=Coins(20, 700)
+Coin2=Coins(20, 600)
 Coin3=Coins(400, 220)
 Coin4= Coins(200, 300)
 Coin5=Coins(500,30)
 Coin6=Coins(300,20)
 Coin7=Coins (200, 400)
 Coin8=Coins(680,220)
-=======
-Coin1=Coins(200, 300)
-Coin2=Coins(500, 20)
-Coin3=Coins(30,400)
-Coin4= Coins(200,50)
-Coin5=Coins(200, 70)
-Coin6=Coins(50,400)
->>>>>>> b5bfee202b9f16a90993a5cac27361dae4f72718
->>>>>>> df677d46dd731dddbbb81b119dc0234a6677a3ff
+Coin9=Coins(600,600)
+Coin10=Coins(500, 300)
+Coin11=Coins(30, 400)
+
 wall1=Obstacle(595, 380, 106, 60,BLACK)
 wall2=Obstacle(488, 380, 106, 60,BLACK)
 wall3=Obstacle(272, 379, 106, 60,BLACK)
@@ -211,13 +201,10 @@ while not done:
                               (MARGIN + HEIGHT) * row + MARGIN,
                               WIDTH,
                               HEIGHT])
-<<<<<<< HEAD
+
 # <<<<<<< HEAD
     player1.draw()
-   
-# =======
 
-=======
 
 #<<<<<<< HEAD
     player1.draw()
@@ -232,12 +219,12 @@ while not done:
     Coin4.draw()
     Coin5.draw()
     Coin6.draw()
-<<<<<<< HEAD
+
     Coin7.draw()
     Coin8.draw()
-=======
->>>>>>> b5bfee202b9f16a90993a5cac27361dae4f72718
->>>>>>> df677d46dd731dddbbb81b119dc0234a6677a3ff
+    Coin9.draw()
+    Coin10.draw()
+    Coin11.draw()
     wall1.draw()   
     wall2.draw()
     wall3.draw()
@@ -246,11 +233,7 @@ while not done:
     wall6.draw()
     wall7.draw()
     wall8.draw()
-<<<<<<< HEAD
-# >>>>>>> 77d5fb4ce766851c53aa100af8168880c2327e71
 
-=======
->>>>>>> b5bfee202b9f16a90993a5cac27361dae4f72718
     wall9.draw()
     wall10.draw()
     wall11.draw()
