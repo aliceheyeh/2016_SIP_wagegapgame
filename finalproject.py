@@ -31,44 +31,55 @@ screen = pygame.display.set_mode(WINDOW_SIZE)
 # Set title of screen
 pygame.display.set_caption("Women")
 
-# class Player():
-#     #def __init__(self, coins):
-#      #   self.coins=coins
+class Player():
+   
 
-#     # Constructor function
-#     def __init__(self, color, x, y):
-#         # Make our top-left corner the passed-in location.
-#         self.sprite = self.circle
-#         self.circle.x = 670
-#         self.circle.y = 470
+    # Constructor function
+    def __init__(self, color, x, y, points):
+        # Make our top-left corner the passed-in location.
+        self.sprite = self.circle
+        self.circle.x = 670
+        self.circle.y = 470
+        self.points=points
 
-#     def reset_player(self):
-#         self.circle.x = 670
-#         self.circle.y = 470
 
-#     # Find a new position for the player
-#     def update(self):
-#         self.circle.x += self.change_y
-#         self.circle.y += self.change_x
+    def reset_player(self):
+        self.circle.x = 670
+        self.circle.y = 470
+
+    # Find a new position for the player
+    def update(self):
+        self.circle.x += self.change_y
+        self.circle.y += self.change_x
 
         
 
-<<<<<<< HEAD
-#     def move(self, x_point):
-#         #moves with each arrow key
-#         self.x_point = self.x_point + speed
+    def move(self, x_point):
+        #moves with each arrow key
+        self.x_point = self.x_point + speed
         
-=======
+
     def move(self, speed):
         #moves with each arrow key
         self.x_point = self.x_point + speed
 
-class Obstacle():
-    def __init__(self, width, color):
-        self.width=width
-        self.color=color
 
->>>>>>> ed196a40f5c81f070b2c063ad84a7dd80bfa8624
+class Obstacle():
+   
+    
+    def __init__(self, x_point, y_point, width, height, color):
+        self.x_point=x_point
+        self.y_point=y_point
+        self.width=width
+        self.height=height
+        self.color=color
+    def draw(self):
+       
+        
+       
+        pygame.draw.rect(screen, self.color, [self.x_point, self.y_point, self.width, self.height])
+
+
  
 # Loop until the user clicks the close button.
 done = False
@@ -77,7 +88,7 @@ done = False
 clock = pygame.time.Clock()
 x_pos=670
 y_pos=470
- 
+
 # -------- Main Program Loop -----------
 while not done:
     for event in pygame.event.get():  # User did something
@@ -110,7 +121,9 @@ while not done:
                               (MARGIN + HEIGHT) * row + MARGIN,
                               WIDTH,
                               HEIGHT])
- 
+
+   
+
     # Limit to 60 frames per second
     clock.tick(60)
     circle = pygame.draw.circle(screen, BLUE, (x_pos,y_pos), 30)
