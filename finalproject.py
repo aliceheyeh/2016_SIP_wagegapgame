@@ -35,12 +35,27 @@ class Player():
    
 
     # Constructor function
-    def __init__(self, color, x, y, points):
+    def __init__(self, x_point, y_point):
         # Make our top-left corner the passed-in location.
-        self.sprite = self.circle
-        self.circle.x = 670
-        self.circle.y = 470
-        self.points=points
+        self.x_point=x_point
+        self.y_point=y_point
+
+    def draw(self):
+        pygame.draw.circle(screen, BLUE, (self.x_point,self.y_point), 30)
+    
+
+    def moveup(self) :
+        #moves up when up arrow key is pressed
+        self.y_point=self.y_point - HEIGHT
+    def movedown(self):
+        self.y_point=self.y_point + HEIGHT
+    def moveleft(self):
+        self.x_point=self.x_point - WIDTH
+    def moveright(self):
+        self.x_point=self.x_point + WIDTH
+        
+        
+    
 
 
     def reset_player(self):
@@ -52,16 +67,12 @@ class Player():
         self.circle.x += self.change_y
         self.circle.y += self.change_x
 
-        
 
-    def move(self, x_point):
-        #moves with each arrow key
-        self.x_point = self.x_point + speed
-        
 
-    def move(self, speed):
-        #moves with each arrow key
-        self.x_point = self.x_point + speed
+
+
+
+
 
 class Coins():
         def __init__(self, x_pos, y_pos):
@@ -96,6 +107,10 @@ class Obstacle():
            
        
         pygame.draw.rect(screen, self.color, [self.x_point, self.y_point, self.width, self.height])
+<<<<<<< HEAD
+player1=Player(670,470)
+=======
+>>>>>>> 77d5fb4ce766851c53aa100af8168880c2327e71
 
  
 wall1=Obstacle(595, 380, 106, 60,BLACK)
@@ -130,13 +145,13 @@ while not done:
     #     print (event.type)
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_UP:
-                y_pos=y_pos- HEIGHT
+                player1.moveup()
             elif event.key == pygame.K_DOWN:
-                y_pos=y_pos+HEIGHT
+                player1.movedown()
             elif event.key == pygame.K_LEFT:
-                x_pos=x_pos- WIDTH
+                player1.moveleft()
             elif event.key == pygame.K_RIGHT:
-                x_pos = x_pos+WIDTH 
+                player1.moveright() 
          
             # Something similar for the up & down keys
     # Set the screen background
@@ -152,6 +167,10 @@ while not done:
                               (MARGIN + HEIGHT) * row + MARGIN,
                               WIDTH,
                               HEIGHT])
+<<<<<<< HEAD
+    player1.draw()
+   
+=======
 
     wall1.draw()   
     wall2.draw()
@@ -161,6 +180,7 @@ while not done:
     wall6.draw()
     wall7.draw()
     wall8.draw()
+>>>>>>> 77d5fb4ce766851c53aa100af8168880c2327e71
 
     wall9.draw()
     wall10.draw()
@@ -169,7 +189,6 @@ while not done:
 
    # Limit to 60 frames per second
     clock.tick(60)
-    circle = pygame.draw.circle(screen, BLUE, (x_pos,y_pos), 30)
     # Go ahead and update the screen with what we've drawn.
     pygame.display.flip()
     
