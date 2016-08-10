@@ -2,10 +2,23 @@ body{
 	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
 }
 
+button{
+	background-color: rgb(255,182,193); /* pink */
+    border: red;
+    color: rgb(0,0,0);
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+}
+
+
 #pageHeader{
 	background-color: #deaeea;
 	font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
-	font-size: 20px;
+	font-size: 22px;
+	text-align: center;
 	height: 60px;
 	word-spacing: 25px;
 	padding-left: 25px;
@@ -30,3 +43,54 @@ div.bod{
 	margin: 100px;
 
 }
+
+button{
+	background-color: rgb(255,182,193); /* pink */
+    border: red;
+    color: rgb(0,0,0);
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+}
+
+div.button1{
+	background-color: rgb(255,182,193); /* pink */
+    border: red;
+	padding: 50px 50px;
+	margin: 20px 290px 20px 290px;
+	font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+	font-size: 33px;
+	color: rgb(0,0,0);
+	text-align: center;
+	position:relative;
+ 	top:-125px;
+ 	left:25px;
+	}
+div.button2{
+	background-color: #deaeea;
+    border: red;
+	padding: 50px 50px;
+	margin: 20px 450px 20px 450px;
+	font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+	font-size: 33px;
+	text-align: center;
+	color: rgb(0,0,0);
+	position:relative;
+ 	top:-100px;
+ 	left:300px;
+	}
+div.button3{
+	background-color: #bfccff;
+	border: red;
+	padding: 50px 50px;
+	margin: 20px 450px 20px 450px;
+	font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+	font-size: 33px;
+	text-align: center;
+	color: rgb(0,0,0);
+	position:relative;
+	top:-361px;
+	left:-300px;
+	}
