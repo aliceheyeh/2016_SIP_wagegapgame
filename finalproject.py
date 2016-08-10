@@ -63,6 +63,25 @@ class Player():
         #moves with each arrow key
         self.x_point = self.x_point + speed
 
+class Coins():
+        def __init__(self, x_pos, y_pos):
+            self.x_pos= x_pos
+            self.y_pos= y_pos
+    # self.value= value 
+        def returnx_pos():
+            return x_pos 
+        def returny_pos():
+            return y_pos 
+    #def returnvalue ():
+        #return value
+
+        def disappear (self):
+            return True
+            
+        def draw(self):
+            pygame.draw.circle(screen, GREEN, (300, 50), 20, width=30)
+            
+
 
 class Obstacle():
    
