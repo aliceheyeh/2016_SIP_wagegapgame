@@ -74,13 +74,21 @@ class Obstacle():
         self.height=height
         self.color=color
     def draw(self):
-       
-        
+           
        
         pygame.draw.rect(screen, self.color, [self.x_point, self.y_point, self.width, self.height])
 
-
  
+wall1=Obstacle(595, 380, 106, 60,BLACK)
+wall2=Obstacle(488, 380, 106, 60,BLACK)
+wall3=Obstacle(272, 379, 106, 60,BLACK)
+wall4=Obstacle(325, 438, 53, 60,BLACK)
+wall5=Obstacle(272, 318, 106, 60,BLACK)
+
+wall6=Obstacle(542, 254, 106, 60,BLACK)
+wall7=Obstacle(272, 318, 106, 60,BLACK)
+wall8=Obstacle(272, 318, 106, 60,BLACK)
+
 # Loop until the user clicks the close button.
 done = False
  
@@ -122,14 +130,22 @@ while not done:
                               WIDTH,
                               HEIGHT])
 
-   
+    wall1.draw()   
+    wall2.draw()
+    wall3.draw()
+    wall4.draw()
+    wall5.draw()
+    
+    wall6.draw()
+    wall7.draw()
+    wall8.draw()
 
-    # Limit to 60 frames per second
+   # Limit to 60 frames per second
     clock.tick(60)
     circle = pygame.draw.circle(screen, BLUE, (x_pos,y_pos), 30)
     # Go ahead and update the screen with what we've drawn.
     pygame.display.flip()
- 
-# Be IDLE friendly. If you forget this line, the program will 'hang'
+    
+    # Be IDLE friendly. If you forget this line, the program will 'hang'
 # on exit.
 pygame.quit()
