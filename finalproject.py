@@ -107,10 +107,9 @@ class Obstacle():
            
        
         pygame.draw.rect(screen, self.color, [self.x_point, self.y_point, self.width, self.height])
-<<<<<<< HEAD
+
 player1=Player(670,470)
-=======
->>>>>>> 77d5fb4ce766851c53aa100af8168880c2327e71
+
 
  
 wall1=Obstacle(595, 380, 106, 60,BLACK)
@@ -121,12 +120,11 @@ wall5=Obstacle(272, 318, 106, 60,BLACK)
 wall6=Obstacle(542, 191, 106, 124,BLACK)
 wall7=Obstacle(542, 65, 106, 60,BLACK)
 wall8=Obstacle(380, 2, 106, 124,BLACK)
-
 wall9=Obstacle(433, 127, 53, 63,BLACK)
-wall10=Obstacle(379, 2, 106, 124,BLACK)
-wall11=Obstacle(379, 2, 106, 124,BLACK)
-wall12=Obstacle(379, 2, 106, 124,BLACK)
-
+wall10=Obstacle(164, 65, 216, 61,BLACK)
+wall11=Obstacle(2, 65, 106, 124,BLACK)
+wall12=Obstacle(161, 190, 216, 63,BLACK)
+wall13=Obstacle(55, 318, 106, 124,BLACK)
 # Loop until the user clicks the close button.
 done = False
  
@@ -167,11 +165,9 @@ while not done:
                               (MARGIN + HEIGHT) * row + MARGIN,
                               WIDTH,
                               HEIGHT])
-<<<<<<< HEAD
-    player1.draw()
-   
-=======
 
+    
+   
     wall1.draw()   
     wall2.draw()
     wall3.draw()
@@ -180,13 +176,12 @@ while not done:
     wall6.draw()
     wall7.draw()
     wall8.draw()
->>>>>>> 77d5fb4ce766851c53aa100af8168880c2327e71
-
     wall9.draw()
     wall10.draw()
     wall11.draw()
     wall12.draw()
-
+    wall13.draw()
+    player1.draw()
    # Limit to 60 frames per second
     clock.tick(60)
     # Go ahead and update the screen with what we've drawn.
