@@ -6,6 +6,7 @@ WHITE = (255, 255, 255)
 RED = (255, 0, 0)
 BLUE = (0, 0, 255)
 GREY = (127, 127, 127)
+YELLOW= (255,255,0)
 # This sets the WIDTH and HEIGHT of each grid location
 WIDTH = 53
 HEIGHT = 62
@@ -78,6 +79,7 @@ class Coins():
         def __init__(self, x_pos, y_pos):
             self.x_pos= x_pos
             self.y_pos= y_pos
+            self.Coins_list=[]
     # self.value= value 
         def returnx_pos():
             return x_pos 
@@ -87,16 +89,16 @@ class Coins():
         #return value
 
         def disappear (self):
-            return True
-            
+           # if self.x_pos=Player.x_point and self.y_pos=Player.y_point;
+           return True
+
+
         def draw(self):
-            pygame.draw.circle(screen, GREEN, (300, 50), 20, width=30)
-            
+            pygame.draw.circle(screen, YELLOW, (x_pos, y_pos), 10, 0)
+
 
 
 class Obstacle():
-   
-    
     def __init__(self, x_point, y_point, width, height, color):
         self.x_point=x_point
         self.y_point=y_point
@@ -104,14 +106,24 @@ class Obstacle():
         self.height=height
         self.color=color
     def draw(self):
-           
-       
         pygame.draw.rect(screen, self.color, [self.x_point, self.y_point, self.width, self.height])
+
+#<<<<<<< HEAD
+player1=Player(670,470)
+#=======
+#>>>>>>> 77d5fb4ce766851c53aa100af8168880c2327e71
+
 
 player1=Player(670,470)
 
 
- 
+
+Coin1=Coins(200, 300)
+Coin2=Coins(500, 20)
+Coin3=Coins(30,400)
+Coin4= Coins(200,50)
+Coin5=Coins(200, 70)
+Coin6=Coins(50,400)
 wall1=Obstacle(595, 380, 106, 60,BLACK)
 wall2=Obstacle(488, 380, 106, 60,BLACK)
 wall3=Obstacle(272, 379, 106, 60,BLACK)
@@ -166,8 +178,19 @@ while not done:
                               WIDTH,
                               HEIGHT])
 
-    
+#<<<<<<< HEAD
+    player1.draw()
    
+#<<<<<<< HEAD
+#=======
+#>>>>>>> 77d5fb4ce766851c53aa100af8168880c2327e71
+
+    Coin1.draw()
+    Coin2.draw()
+    Coin3.draw()
+    Coin4.draw()
+    Coin5.draw()
+    Coin6.draw()
     wall1.draw()   
     wall2.draw()
     wall3.draw()
