@@ -6,6 +6,7 @@ WHITE = (255, 255, 255)
 RED = (255, 0, 0)
 BLUE = (0, 0, 255)
 GREY = (127, 127, 127)
+YELLOW= (255,255,0)
 # This sets the WIDTH and HEIGHT of each grid location
 WIDTH = 53
 HEIGHT = 62
@@ -78,6 +79,7 @@ class Coins():
         def __init__(self, x_pos, y_pos):
             self.x_pos= x_pos
             self.y_pos= y_pos
+            self.Coins_list=[]
     # self.value= value 
         def returnx_pos():
             return x_pos 
@@ -91,10 +93,9 @@ class Coins():
            return True
 
 
-            
         def draw(self):
-            pygame.draw.circle(screen, RED, (300, 50), 20, width=30)
-            
+            pygame.draw.circle(screen, YELLOW, (x_pos, y_pos), 10, 0)
+
 
 
 class Obstacle():
@@ -111,16 +112,20 @@ player1=Player(670,470)
 #=======
 #>>>>>>> 77d5fb4ce766851c53aa100af8168880c2327e71
 
- 
+Coin1=Coins(100, 300)
 wall1=Obstacle(595, 380, 106, 60,BLACK)
 wall2=Obstacle(488, 380, 106, 60,BLACK)
 wall3=Obstacle(272, 379, 106, 60,BLACK)
 wall4=Obstacle(325, 438, 53, 60,BLACK)
 wall5=Obstacle(272, 318, 106, 60,BLACK)
+wall6=Obstacle(542, 191, 106, 124,BLACK)
+wall7=Obstacle(542, 65, 106, 60,BLACK)
+wall8=Obstacle(380, 2, 106, 124,BLACK)
 
-wall6=Obstacle(542, 254, 106, 60,BLACK)
-wall7=Obstacle(272, 318, 106, 60,BLACK)
-wall8=Obstacle(272, 318, 106, 60,BLACK)
+wall9=Obstacle(433, 127, 53, 63,BLACK)
+wall10=Obstacle(379, 2, 106, 124,BLACK)
+wall11=Obstacle(379, 2, 106, 124,BLACK)
+wall12=Obstacle(379, 2, 106, 124,BLACK)
 
 # Loop until the user clicks the close button.
 done = False
@@ -165,8 +170,23 @@ while not done:
 #<<<<<<< HEAD
     player1.draw()
    
+#<<<<<<< HEAD
 #=======
 #>>>>>>> 77d5fb4ce766851c53aa100af8168880c2327e71
+
+    Coin1.draw()
+    wall1.draw()   
+    wall2.draw()
+    wall3.draw()
+    wall4.draw()
+    wall5.draw()
+    wall6.draw()
+    wall7.draw()
+    wall8.draw()
+    wall9.draw()
+    wall10.draw()
+    wall11.draw()
+    wall12.draw()
 
    # Limit to 60 frames per second
     clock.tick(60)
