@@ -87,16 +87,17 @@ class Coins():
         #return value
 
         def disappear (self):
-            return True
+           # if self.x_pos=Player.x_point and self.y_pos=Player.y_point;
+           return True
+
+
             
         def draw(self):
-            pygame.draw.circle(screen, GREEN, (300, 50), 20, width=30)
+            pygame.draw.circle(screen, RED, (300, 50), 20, width=30)
             
 
 
 class Obstacle():
-   
-    
     def __init__(self, x_point, y_point, width, height, color):
         self.x_point=x_point
         self.y_point=y_point
@@ -104,13 +105,11 @@ class Obstacle():
         self.height=height
         self.color=color
     def draw(self):
-           
-       
         pygame.draw.rect(screen, self.color, [self.x_point, self.y_point, self.width, self.height])
-<<<<<<< HEAD
+#<<<<<<< HEAD
 player1=Player(670,470)
-=======
->>>>>>> 77d5fb4ce766851c53aa100af8168880c2327e71
+#=======
+#>>>>>>> 77d5fb4ce766851c53aa100af8168880c2327e71
 
  
 wall1=Obstacle(595, 380, 106, 60,BLACK)
@@ -163,21 +162,11 @@ while not done:
                               (MARGIN + HEIGHT) * row + MARGIN,
                               WIDTH,
                               HEIGHT])
-<<<<<<< HEAD
+#<<<<<<< HEAD
     player1.draw()
    
-=======
-
-    wall1.draw()   
-    wall2.draw()
-    wall3.draw()
-    wall4.draw()
-    wall5.draw()
-    
-    wall6.draw()
-    wall7.draw()
-    wall8.draw()
->>>>>>> 77d5fb4ce766851c53aa100af8168880c2327e71
+#=======
+#>>>>>>> 77d5fb4ce766851c53aa100af8168880c2327e71
 
    # Limit to 60 frames per second
     clock.tick(60)
