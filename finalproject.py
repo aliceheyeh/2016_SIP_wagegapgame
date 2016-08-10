@@ -55,10 +55,6 @@ class Player():
     def moveright(self):
         self.x_point=self.x_point + WIDTH
         
-        
-    
-
-
     def reset_player(self):
         self.circle.x = 670
         self.circle.y = 470
@@ -79,7 +75,7 @@ class Coins():
         def __init__(self, x_pos, y_pos):
             self.x_pos= x_pos
             self.y_pos= y_pos
-            self.Coins_list=[]
+            #self.Coins_list=[]
     # self.value= value 
         def returnx_pos():
             return x_pos 
@@ -91,10 +87,8 @@ class Coins():
         def disappear (self):
            # if self.x_pos=Player.x_point and self.y_pos=Player.y_point;
            return True
-
-
         def draw(self):
-            pygame.draw.circle(screen, YELLOW, (x_pos, y_pos), 10, 0)
+            pygame.draw.circle(screen, YELLOW, (self.x_pos, self.y_pos), 10, 0)
 
 
 
@@ -118,12 +112,14 @@ player1=Player(670,470)
 
 
 
-Coin1=Coins(200, 300)
-Coin2=Coins(500, 20)
-Coin3=Coins(30,400)
-Coin4= Coins(200,50)
-Coin5=Coins(200, 70)
-Coin6=Coins(50,400)
+Coin1=Coins(30, 50)
+Coin2=Coins(20, 700)
+Coin3=Coins(400, 220)
+Coin4= Coins(200, 300)
+Coin5=Coins(500,30)
+Coin6=Coins(300,20)
+Coin7=Coins (200, 400)
+Coin8=Coins(680,220)
 wall1=Obstacle(595, 380, 106, 60,BLACK)
 wall2=Obstacle(488, 380, 106, 60,BLACK)
 wall3=Obstacle(272, 379, 106, 60,BLACK)
@@ -191,6 +187,8 @@ while not done:
     Coin4.draw()
     Coin5.draw()
     Coin6.draw()
+    Coin7.draw()
+    Coin8.draw()
     wall1.draw()   
     wall2.draw()
     wall3.draw()
