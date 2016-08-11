@@ -101,8 +101,19 @@ div.carousel{
 	position: relative; 
 	top: -125px;
 }
+#quack{
+	background-color: rgb(255,182,193); /* pink */
+    border: red;
+	padding: 50px 50px;
+	margin: 20px 290px 20px 290px;
+	font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+	text-align: center;
+	color: rgb(0,0,0);
+	position: relative; 
+	top: -125px;
+}
 
-div.ic2{
+#ic2{
 	background-color: rgb(255,182,193); /* pink */
     border: red;
 	padding: 50px 50px;
@@ -113,7 +124,7 @@ div.ic2{
 	position: relative; 
 	top: -125px;
 	}
-div.alice{
+#alice{
 	background-color: #deaeea;
     border: red;
 	padding: 50px 50px;
@@ -124,7 +135,7 @@ div.alice{
 	position: relative; 
 	top: -125px;
 	}
-div.susie{
+#susie{
 	background-color: #deaeea;
     border: red;
 	padding: 50px 50px;
@@ -135,7 +146,7 @@ div.susie{
 	position: relative; 
 	top: -125px;
 	}
-div.lee{
+#lee{
 	background-color: #bfccff;
 	border: red;
 	padding: 50px 50px;
@@ -146,7 +157,7 @@ div.lee{
 	position: relative; 
 	top: -125px;
 	}
-div.sabrina{
+#sabrina{
 	background-color: #bfccff;
 	border: red;
 	padding: 50px 50px;
