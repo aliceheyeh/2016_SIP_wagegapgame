@@ -62,10 +62,6 @@ class Player(pygame.sprite.Sprite):
     def moveright(self):
         self.x_point=self.x_point + WIDTH
         
-        
-    
-
-
     def reset_player(self):
         self.circle.x = 680
         self.circle.y = 480
@@ -86,7 +82,7 @@ class Coins():
         def __init__(self, x_pos, y_pos):
             self.x_pos= x_pos
             self.y_pos= y_pos
-            self.Coins_list=[]
+            #self.Coins_list=[]
     # self.value= value 
         def returnx_pos():
             return x_pos 
@@ -98,16 +94,18 @@ class Coins():
         def disappear (self):
            # if self.x_pos=Player.x_point and self.y_pos=Player.y_point;
            return True
-
-
         def draw(self):
-            pygame.draw.circle(screen, YELLOW, (x_pos, y_pos), 10, 0)
+            pygame.draw.circle(screen, YELLOW, (self.x_pos, self.y_pos), 10, 0)
 
-
-
+<<<<<<< HEAD
   
 
 class Obstacle(pygame.sprite.Sprite):
+=======
+    
+
+class Obstacle():
+>>>>>>> 35263a89d9dba9316f8d2e0dd6081bf6ae33c1e3
 
     def __init__(self, x_point, y_point, width, height, color):
         super().__init__()
@@ -123,6 +121,10 @@ class Obstacle(pygame.sprite.Sprite):
     def draw(self):
         pygame.draw.rect(screen, self.color, [self.x_point, self.y_point, self.width, self.height])
 
+<<<<<<< HEAD
+=======
+# <<<<<<< HEAD
+>>>>>>> 35263a89d9dba9316f8d2e0dd6081bf6ae33c1e3
 player1=Player(670,470)
 
 
@@ -133,6 +135,10 @@ player1=Player(670,470)
 
 #print(pygame.sprite.collide_rect(Player,Obstacle))
  
+<<<<<<< HEAD
+=======
+
+>>>>>>> 35263a89d9dba9316f8d2e0dd6081bf6ae33c1e3
 
 
 
@@ -141,6 +147,7 @@ player1=Player(670,470)
 
 
 
+<<<<<<< HEAD
 Coin1=Coins(200, 300)
 Coin2=Coins(500, 20)
 Coin3=Coins(30,400)
@@ -150,6 +157,20 @@ Coin6=Coins(50,400)
 
 
 
+=======
+
+Coin1=Coins(30, 50)
+Coin2=Coins(20, 600)
+Coin3=Coins(400, 220)
+Coin4= Coins(200, 300)
+Coin5=Coins(500,30)
+Coin6=Coins(300,20)
+Coin7=Coins (200, 400)
+Coin8=Coins(680,220)
+Coin9=Coins(600,600)
+Coin10=Coins(500, 300)
+Coin11=Coins(30, 400)
+>>>>>>> 35263a89d9dba9316f8d2e0dd6081bf6ae33c1e3
 
 wall1=Obstacle(595, 380, 106, 60,BLACK)
 wall2=Obstacle(488, 380, 106, 60,BLACK)
@@ -217,6 +238,13 @@ while not done:
                               (MARGIN + HEIGHT) * row + MARGIN,
                               WIDTH,
                               HEIGHT])
+<<<<<<< HEAD
+=======
+
+# <<<<<<< HEAD
+    player1.draw()
+
+>>>>>>> 35263a89d9dba9316f8d2e0dd6081bf6ae33c1e3
 
     player1.draw()
    
@@ -229,6 +257,14 @@ while not done:
     Coin5.draw()
     Coin6.draw()
 
+<<<<<<< HEAD
+=======
+    Coin7.draw()
+    Coin8.draw()
+    Coin9.draw()
+    Coin10.draw()
+    Coin11.draw()
+>>>>>>> 35263a89d9dba9316f8d2e0dd6081bf6ae33c1e3
     wall1.draw()   
     wall2.draw()
     wall3.draw()
@@ -238,7 +274,10 @@ while not done:
     wall7.draw()
     wall8.draw()
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 35263a89d9dba9316f8d2e0dd6081bf6ae33c1e3
     wall9.draw()
     wall10.draw()
     wall11.draw()
