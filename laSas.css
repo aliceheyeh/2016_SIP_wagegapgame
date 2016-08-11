@@ -94,3 +94,13 @@ div.button3{
 	top:-361px;
 	left:-300px;
 	}
+#about{
+	position: relative;
+	top:100;
+	
+}
+#logo{
+	position: relative;
+	top:20px;
+	left:50px;
+}
