@@ -31,8 +31,8 @@ screen = pygame.display.set_mode(WINDOW_SIZE)
  
 # Set title of screen
 pygame.display.set_caption("Women")
-width = 50
-height = 50
+width = 20
+height = 20
 class Player(pygame.sprite.Sprite):
    
 
@@ -49,7 +49,7 @@ class Player(pygame.sprite.Sprite):
         self.rect=self.image.get_rect()
 
     def draw(self):
-        pygame.draw.circle(screen,BLUE,(self.x_point,self.y_point),20)
+        pygame.draw.circle(screen,BLUE,(self.x_point,self.y_point),10)
     
 
     def moveup(self) :
@@ -105,13 +105,10 @@ class Coins():
 
 
 
-<<<<<<< HEAD
+  
+
 class Obstacle(pygame.sprite.Sprite):
-   
-    
-=======
-class Obstacle():
->>>>>>> b5bfee202b9f16a90993a5cac27361dae4f72718
+
     def __init__(self, x_point, y_point, width, height, color):
         super().__init__()
         self.x_point=x_point
@@ -119,27 +116,25 @@ class Obstacle():
         self.width=width
         self.height=height
         self.color=color
+        self.image=pygame.Surface([width,height])
+        self.image.fill(BLACK)
+        self.rect=self.image.get_rect()
 
     def draw(self):
         pygame.draw.rect(screen, self.color, [self.x_point, self.y_point, self.width, self.height])
-<<<<<<< HEAD
-# <<<<<<< HEAD
+
 player1=Player(670,470)
-# =======
-# >>>>>>> 77d5fb4ce766851c53aa100af8168880c2327e71
+
 
 # collision = pygame.sprite.collide_rect(Player,Obstacle):
 
-# if pygame.sprite.collide_rect 
+
+
 
 #print(pygame.sprite.collide_rect(Player,Obstacle))
  
-=======
 
-#<<<<<<< HEAD
-player1=Player(670,470)
-#=======
-#>>>>>>> 77d5fb4ce766851c53aa100af8168880c2327e71
+
 
 
 player1=Player(670,470)
@@ -152,7 +147,10 @@ Coin3=Coins(30,400)
 Coin4= Coins(200,50)
 Coin5=Coins(200, 70)
 Coin6=Coins(50,400)
->>>>>>> b5bfee202b9f16a90993a5cac27361dae4f72718
+
+
+
+
 wall1=Obstacle(595, 380, 106, 60,BLACK)
 wall2=Obstacle(488, 380, 106, 60,BLACK)
 wall3=Obstacle(272, 379, 106, 60,BLACK)
@@ -166,6 +164,15 @@ wall10=Obstacle(164, 65, 216, 61,BLACK)
 wall11=Obstacle(2, 65, 106, 124,BLACK)
 wall12=Obstacle(161, 190, 216, 63,BLACK)
 wall13=Obstacle(55, 318, 106, 124,BLACK)
+
+
+group_obstacles=pygame.sprite.Group(wall1,wall2,wall3,wall4,wall5,wall6,wall7,wall8,wall9,wall10,wall11,wall12,wall13)
+
+
+
+
+
+
 # Loop until the user clicks the close button.
 done = False
  
@@ -183,14 +190,18 @@ while not done:
     # for event in pygame.event.get():
     #     print (event.type)
         elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_UP:
-                player1.moveup()
-            elif event.key == pygame.K_DOWN:
-                player1.movedown()
-            elif event.key == pygame.K_LEFT:
-                player1.moveleft()
-            elif event.key == pygame.K_RIGHT:
-                player1.moveright() 
+            
+            collision = pygame.sprite.spritecollide(player1,group_obstacles,False)
+            if len(collision) == 0:
+    
+                if event.key == pygame.K_UP:
+                    player1.moveup()
+                elif event.key == pygame.K_DOWN:
+                    player1.movedown()
+                elif event.key == pygame.K_LEFT:
+                    player1.moveleft()
+                elif event.key == pygame.K_RIGHT:
+                    player1.moveright() 
          
             # Something similar for the up & down keys
     # Set the screen background
@@ -206,20 +217,10 @@ while not done:
                               (MARGIN + HEIGHT) * row + MARGIN,
                               WIDTH,
                               HEIGHT])
-<<<<<<< HEAD
-# <<<<<<< HEAD
+
     player1.draw()
    
-# =======
 
-=======
-
-#<<<<<<< HEAD
-    player1.draw()
-   
-#<<<<<<< HEAD
-#=======
-#>>>>>>> 77d5fb4ce766851c53aa100af8168880c2327e71
 
     Coin1.draw()
     Coin2.draw()
@@ -227,7 +228,7 @@ while not done:
     Coin4.draw()
     Coin5.draw()
     Coin6.draw()
->>>>>>> b5bfee202b9f16a90993a5cac27361dae4f72718
+
     wall1.draw()   
     wall2.draw()
     wall3.draw()
@@ -236,11 +237,8 @@ while not done:
     wall6.draw()
     wall7.draw()
     wall8.draw()
-<<<<<<< HEAD
-# >>>>>>> 77d5fb4ce766851c53aa100af8168880c2327e71
 
-=======
->>>>>>> b5bfee202b9f16a90993a5cac27361dae4f72718
+
     wall9.draw()
     wall10.draw()
     wall11.draw()
