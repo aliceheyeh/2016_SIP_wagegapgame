@@ -38,29 +38,37 @@ class Player(pygame.sprite.Sprite):
 
     # Constructor function
 
-    def __init__(self, x_point, y_point):
+    def __init__(self, x_point, y_point,last_move):
         # Make our top-left corner the passed-in location.
         pygame.sprite.Sprite.__init__(self)
 
-        self.x_point=x_point
-        self.y_point=y_point
         self.image=pygame.Surface([width,height])
         self.image.fill(BLUE)
         self.rect=self.image.get_rect()
-
+        self.rect.x=x_point
+        self.rect.y=y_point
+        self.last_move=last_move
     def draw(self):
-        pygame.draw.circle(screen,BLUE,(self.x_point,self.y_point),10)
+        pygame.draw.circle(screen,BLUE,(self.rect.x,self.rect.y),10)
+        # print("draw")
+        # print(self.rect.x)
+        # print(self.rect.y)
+    
     
 
     def moveup(self) :
         #moves up when up arrow key is pressed
-        self.y_point=self.y_point - HEIGHT
+        self.rect.y=self.rect.y - HEIGHT
+        self.last_move="up"
     def movedown(self):
-        self.y_point=self.y_point + HEIGHT
+        self.rect.y=self.rect.y + HEIGHT
+        self.last_move="down"
     def moveleft(self):
-        self.x_point=self.x_point - WIDTH
+        self.rect.x=self.rect.x - WIDTH
+        self.last_move="left"
     def moveright(self):
-        self.x_point=self.x_point + WIDTH
+        self.rect.x=self.rect.x + WIDTH
+        self.last_move="right"
         
     def reset_player(self):
         self.circle.x = 680
@@ -71,6 +79,13 @@ class Player(pygame.sprite.Sprite):
         self.circle.x += self.change_y
         self.circle.y += self.change_x
 
+    def move(self,x_point,y_point):
+        self.rect.x=x_point
+        self.rect.y=y_point
+        # print("move")
+        # print(self.rect.x)
+        # print(self.rect.y)
+        
 
 
 
@@ -97,35 +112,27 @@ class Coins():
         def draw(self):
             pygame.draw.circle(screen, YELLOW, (self.x_pos, self.y_pos), 10, 0)
 
-<<<<<<< HEAD
+
   
 
 class Obstacle(pygame.sprite.Sprite):
-=======
-    
-
-class Obstacle():
->>>>>>> 35263a89d9dba9316f8d2e0dd6081bf6ae33c1e3
-
     def __init__(self, x_point, y_point, width, height, color):
         super().__init__()
-        self.x_point=x_point
-        self.y_point=y_point
         self.width=width
         self.height=height
         self.color=color
         self.image=pygame.Surface([width,height])
         self.image.fill(BLACK)
         self.rect=self.image.get_rect()
+        self.rect.x=x_point
+        self.rect.y=y_point
 
     def draw(self):
-        pygame.draw.rect(screen, self.color, [self.x_point, self.y_point, self.width, self.height])
+        pygame.draw.rect(screen, self.color, [self.rect.x, self.rect.y, self.width, self.height])
 
-<<<<<<< HEAD
-=======
-# <<<<<<< HEAD
->>>>>>> 35263a89d9dba9316f8d2e0dd6081bf6ae33c1e3
-player1=Player(670,470)
+
+
+
 
 
 # collision = pygame.sprite.collide_rect(Player,Obstacle):
@@ -135,19 +142,14 @@ player1=Player(670,470)
 
 #print(pygame.sprite.collide_rect(Player,Obstacle))
  
-<<<<<<< HEAD
-=======
-
->>>>>>> 35263a89d9dba9316f8d2e0dd6081bf6ae33c1e3
 
 
 
 
-player1=Player(670,470)
+player1=Player(670,470,"none")
 
 
 
-<<<<<<< HEAD
 Coin1=Coins(200, 300)
 Coin2=Coins(500, 20)
 Coin3=Coins(30,400)
@@ -157,7 +159,6 @@ Coin6=Coins(50,400)
 
 
 
-=======
 
 Coin1=Coins(30, 50)
 Coin2=Coins(20, 600)
@@ -170,7 +171,6 @@ Coin8=Coins(680,220)
 Coin9=Coins(600,600)
 Coin10=Coins(500, 300)
 Coin11=Coins(30, 400)
->>>>>>> 35263a89d9dba9316f8d2e0dd6081bf6ae33c1e3
 
 wall1=Obstacle(595, 380, 106, 60,BLACK)
 wall2=Obstacle(488, 380, 106, 60,BLACK)
@@ -196,6 +196,9 @@ group_obstacles=pygame.sprite.Group(wall1,wall2,wall3,wall4,wall5,wall6,wall7,wa
 
 # Loop until the user clicks the close button.
 done = False
+# flag = True
+# x_player = 0
+# y_player = 0
  
 # Used to manage how fast the screen updates
 clock = pygame.time.Clock()
@@ -204,25 +207,59 @@ y_pos=470
 
 # -------- Main Program Loop -----------
 while not done:
+    
     for event in pygame.event.get():  # User did something
+        x_player=player1.rect.x
+        y_player=player1.rect.y
         if event.type == pygame.QUIT:  # If user clicked close
             done = True  # Flag that we are done so we exit this loop
     
     # for event in pygame.event.get():
     #     print (event.type)
-        elif event.type == pygame.KEYDOWN:
+        
+        # elif event.type == pygame.KEYDOWN:
+
             
-            collision = pygame.sprite.spritecollide(player1,group_obstacles,False)
-            if len(collision) == 0:
-    
-                if event.key == pygame.K_UP:
-                    player1.moveup()
-                elif event.key == pygame.K_DOWN:
-                    player1.movedown()
-                elif event.key == pygame.K_LEFT:
-                    player1.moveleft()
-                elif event.key == pygame.K_RIGHT:
-                    player1.moveright() 
+        collision = pygame.sprite.spritecollide(player1,group_obstacles,False)
+        print (collision)
+        
+            
+        if event.type == pygame.KEYDOWN:
+                # flag = False
+                if len(collision) == 0: 
+
+                    if event.key == pygame.K_UP:
+                        player1.moveup()
+                    elif event.key == pygame.K_DOWN:
+                        player1.movedown()
+                    elif event.key == pygame.K_LEFT:
+                        player1.moveleft()
+                    elif event.key == pygame.K_RIGHT:
+                        player1.moveright()
+ 
+        if len(collision) == 1:
+            if player1.last_move == "up":
+                player1.movedown()
+            elif player1.last_move == "down":
+                player1.moveup()
+            elif player1.last_move == "right":
+                player1.moveleft()
+            elif player1.last_move == "left":
+                player1.moveright()
+
+            #     flag = True 
+            #     bre
+                # print("current pos")
+                # print(player1.rect.x)
+                # print(player1.rect.y)
+                # print("old pos")
+                # print(x_player)
+                # print(y_player)
+          
+    # if flag == True:
+    #     print(flag) 
+    #     player1.move(x_player,y_player)
+    #     flag = False
          
             # Something similar for the up & down keys
     # Set the screen background
@@ -238,14 +275,8 @@ while not done:
                               (MARGIN + HEIGHT) * row + MARGIN,
                               WIDTH,
                               HEIGHT])
-<<<<<<< HEAD
-=======
 
-# <<<<<<< HEAD
-    player1.draw()
-
->>>>>>> 35263a89d9dba9316f8d2e0dd6081bf6ae33c1e3
-
+    
     player1.draw()
    
 
@@ -257,14 +288,12 @@ while not done:
     Coin5.draw()
     Coin6.draw()
 
-<<<<<<< HEAD
-=======
     Coin7.draw()
     Coin8.draw()
     Coin9.draw()
     Coin10.draw()
     Coin11.draw()
->>>>>>> 35263a89d9dba9316f8d2e0dd6081bf6ae33c1e3
+
     wall1.draw()   
     wall2.draw()
     wall3.draw()
@@ -274,10 +303,7 @@ while not done:
     wall7.draw()
     wall8.draw()
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 35263a89d9dba9316f8d2e0dd6081bf6ae33c1e3
     wall9.draw()
     wall10.draw()
     wall11.draw()
