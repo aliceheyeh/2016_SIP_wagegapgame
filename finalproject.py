@@ -113,6 +113,7 @@ class Coins():
             pygame.draw.circle(screen, YELLOW, (self.x_pos, self.y_pos), 10, 0)
 
 
+
   
 
 class Obstacle(pygame.sprite.Sprite):
@@ -134,28 +135,7 @@ class Obstacle(pygame.sprite.Sprite):
 
 
 
-
-# collision = pygame.sprite.collide_rect(Player,Obstacle):
-
-
-
-
-#print(pygame.sprite.collide_rect(Player,Obstacle))
- 
-
-
-
-
 player1=Player(670,470,"none")
-
-
-
-Coin1=Coins(200, 300)
-Coin2=Coins(500, 20)
-Coin3=Coins(30,400)
-Coin4= Coins(200,50)
-Coin5=Coins(200, 70)
-Coin6=Coins(50,400)
 
 
 
@@ -275,7 +255,6 @@ while not done:
                               (MARGIN + HEIGHT) * row + MARGIN,
                               WIDTH,
                               HEIGHT])
-
     
     player1.draw()
    
@@ -303,13 +282,12 @@ while not done:
     wall7.draw()
     wall8.draw()
 
-
     wall9.draw()
     wall10.draw()
     wall11.draw()
     wall12.draw()
     wall13.draw()
-    player1.draw()
+    
    # Limit to 60 frames per second
     clock.tick(60)
     # Go ahead and update the screen with what we've drawn.
