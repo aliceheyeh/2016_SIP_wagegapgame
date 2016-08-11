@@ -201,7 +201,7 @@ while not done:
 
             
         collision = pygame.sprite.spritecollide(player1,group_obstacles,False)
-        print (collision)
+        
         
             
         if event.type == pygame.KEYDOWN:
