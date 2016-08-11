@@ -31,8 +31,8 @@ screen = pygame.display.set_mode(WINDOW_SIZE)
  
 # Set title of screen
 pygame.display.set_caption("Women")
-width = 50
-height = 50
+width = 20
+height = 20
 class Player(pygame.sprite.Sprite):
    
 
@@ -49,7 +49,7 @@ class Player(pygame.sprite.Sprite):
         self.rect=self.image.get_rect()
 
     def draw(self):
-        pygame.draw.circle(screen,BLUE,(self.x_point,self.y_point),20)
+        pygame.draw.circle(screen,BLUE,(self.x_point,self.y_point),10)
     
 
     def moveup(self) :
@@ -62,10 +62,6 @@ class Player(pygame.sprite.Sprite):
     def moveright(self):
         self.x_point=self.x_point + WIDTH
         
-        
-    
-
-
     def reset_player(self):
         self.circle.x = 680
         self.circle.y = 480
@@ -86,7 +82,7 @@ class Coins():
         def __init__(self, x_pos, y_pos):
             self.x_pos= x_pos
             self.y_pos= y_pos
-            self.Coins_list=[]
+            #self.Coins_list=[]
     # self.value= value 
         def returnx_pos():
             return x_pos 
@@ -98,15 +94,12 @@ class Coins():
         def disappear (self):
            # if self.x_pos=Player.x_point and self.y_pos=Player.y_point;
            return True
-
-
         def draw(self):
-            pygame.draw.circle(screen, YELLOW, (x_pos, y_pos), 10, 0)
+            pygame.draw.circle(screen, YELLOW, (self.x_pos, self.y_pos), 10, 0)
 
-
+  
 
 class Obstacle(pygame.sprite.Sprite):
-   
 
 
     def __init__(self, x_point, y_point, width, height, color):
@@ -116,6 +109,9 @@ class Obstacle(pygame.sprite.Sprite):
         self.width=width
         self.height=height
         self.color=color
+        self.image=pygame.Surface([width,height])
+        self.image.fill(BLACK)
+        self.rect=self.image.get_rect()
 
     def draw(self):
         pygame.draw.rect(screen, self.color, [self.x_point, self.y_point, self.width, self.height])
@@ -126,12 +122,10 @@ player1=Player(670,470)
 
 # collision = pygame.sprite.collide_rect(Player,Obstacle):
 
-# if pygame.sprite.collide_rect 
+
+
 
 #print(pygame.sprite.collide_rect(Player,Obstacle))
- 
-
-player1=Player(670,470)
 
 
 
@@ -139,12 +133,19 @@ player1=Player(670,470)
 
 
 
-Coin1=Coins(200, 300)
-Coin2=Coins(500, 20)
-Coin3=Coins(30,400)
-Coin4= Coins(200,50)
-Coin5=Coins(200, 70)
-Coin6=Coins(50,400)
+
+
+Coin1=Coins(30, 50)
+Coin2=Coins(20, 600)
+Coin3=Coins(400, 220)
+Coin4= Coins(200, 300)
+Coin5=Coins(500,30)
+Coin6=Coins(300,20)
+Coin7=Coins (200, 400)
+Coin8=Coins(680,220)
+Coin9=Coins(600,600)
+Coin10=Coins(500, 300)
+Coin11=Coins(30, 400)
 
 wall1=Obstacle(595, 380, 106, 60,BLACK)
 wall2=Obstacle(488, 380, 106, 60,BLACK)
@@ -159,6 +160,15 @@ wall10=Obstacle(164, 65, 216, 61,BLACK)
 wall11=Obstacle(2, 65, 106, 124,BLACK)
 wall12=Obstacle(161, 190, 216, 63,BLACK)
 wall13=Obstacle(55, 318, 106, 124,BLACK)
+
+
+group_obstacles=pygame.sprite.Group(wall1,wall2,wall3,wall4,wall5,wall6,wall7,wall8,wall9,wall10,wall11,wall12,wall13)
+
+
+
+
+
+
 # Loop until the user clicks the close button.
 done = False
  
@@ -176,14 +186,18 @@ while not done:
     # for event in pygame.event.get():
     #     print (event.type)
         elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_UP:
-                player1.moveup()
-            elif event.key == pygame.K_DOWN:
-                player1.movedown()
-            elif event.key == pygame.K_LEFT:
-                player1.moveleft()
-            elif event.key == pygame.K_RIGHT:
-                player1.moveright() 
+            
+            collision = pygame.sprite.spritecollide(player1,group_obstacles,False)
+            if len(collision) == 0:
+    
+                if event.key == pygame.K_UP:
+                    player1.moveup()
+                elif event.key == pygame.K_DOWN:
+                    player1.movedown()
+                elif event.key == pygame.K_LEFT:
+                    player1.moveleft()
+                elif event.key == pygame.K_RIGHT:
+                    player1.moveright() 
          
             # Something similar for the up & down keys
     # Set the screen background
@@ -200,8 +214,10 @@ while not done:
                               WIDTH,
                               HEIGHT])
 
+# <<<<<<< HEAD
     player1.draw()
-   
+
+
 
     player1.draw()
    
@@ -214,6 +230,12 @@ while not done:
     Coin5.draw()
     Coin6.draw()
 
+    Coin7.draw()
+    Coin8.draw()
+    Coin9.draw()
+    Coin10.draw()
+    Coin11.draw()
+
     wall1.draw()   
     wall2.draw()
     wall3.draw()
@@ -222,6 +244,7 @@ while not done:
     wall6.draw()
     wall7.draw()
     wall8.draw()
+
     wall9.draw()
     wall10.draw()
     wall11.draw()
