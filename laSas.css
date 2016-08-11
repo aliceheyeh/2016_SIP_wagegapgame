@@ -44,6 +44,9 @@ div.bod{
 
 }
 
+h5{
+	font-size: 14px;
+}
 button{
 	background-color: rgb(255,182,193); /* pink */
     border: red;
@@ -94,14 +97,15 @@ div.button3{
 	top:-361px;
 	left:-300px;
 	}
+
 div.ic2{
 	background-color: rgb(255,182,193); /* pink */
     border: red;
 	padding: 50px 50px;
 	margin: 20px 290px 20px 290px;
 	font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
-	color: rgb(0,0,0);
 	text-align: center;
+	color: rgb(0,0,0);
 	}
 div.alice{
 	background-color: #deaeea;
@@ -139,3 +143,15 @@ div.sabrina{
 	text-align: center;
 	color: rgb(0,0,0);
 	}
+=======
+#about{
+	position: relative;
+	top:100;
+	
+}
+#logo{
+	position: relative;
+	top:20px;
+	left:50px;
+}
+>>>>>>> 227f1893385717050ec8acd60a6696ed54d4affa
