@@ -97,6 +97,10 @@ div.button3{
 	top:-361px;
 	left:-300px;
 	}
+div.carousel{
+	position: relative; 
+	top: -125px;
+}
 
 div.ic2{
 	background-color: rgb(255,182,193); /* pink */
@@ -106,6 +110,8 @@ div.ic2{
 	font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
 	text-align: center;
 	color: rgb(0,0,0);
+	position: relative; 
+	top: -125px;
 	}
 div.alice{
 	background-color: #deaeea;
@@ -115,6 +121,8 @@ div.alice{
 	font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
 	text-align: center;
 	color: rgb(0,0,0);
+	position: relative; 
+	top: -125px;
 	}
 div.susie{
 	background-color: #deaeea;
@@ -124,6 +132,8 @@ div.susie{
 	font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
 	text-align: center;
 	color: rgb(0,0,0);
+	position: relative; 
+	top: -125px;
 	}
 div.lee{
 	background-color: #bfccff;
@@ -133,6 +143,8 @@ div.lee{
 	font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
 	text-align: center;
 	color: rgb(0,0,0);
+	position: relative; 
+	top: -125px;
 	}
 div.sabrina{
 	background-color: #bfccff;
@@ -142,16 +154,18 @@ div.sabrina{
 	font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
 	text-align: center;
 	color: rgb(0,0,0);
+	position: relative; 
+	top: -125px;
 	}
-=======
-#about{
-	position: relative;
-	top:100;
+
+div.about{
+	padding:20px;
+	margin: 20px 300px 20px 300px;
+	position: relative; 
+	top: -125px;
+	background-color: rgb(255,182,193);
+
 	
 }
-#logo{
-	position: relative;
-	top:20px;
-	left:50px;
-}
->>>>>>> 227f1893385717050ec8acd60a6696ed54d4affa
+
+
