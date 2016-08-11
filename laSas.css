@@ -94,3 +94,48 @@ div.button3{
 	top:-361px;
 	left:-300px;
 	}
+div.ic2{
+	background-color: rgb(255,182,193); /* pink */
+    border: red;
+	padding: 50px 50px;
+	margin: 20px 290px 20px 290px;
+	font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+	color: rgb(0,0,0);
+	text-align: center;
+	}
+div.alice{
+	background-color: #deaeea;
+    border: red;
+	padding: 50px 50px;
+	margin: 20px 290px 20px 290px;
+	font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+	text-align: center;
+	color: rgb(0,0,0);
+	}
+div.susie{
+	background-color: #deaeea;
+    border: red;
+	padding: 50px 50px;
+	margin: 20px 290px 20px 290px;
+	font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+	text-align: center;
+	color: rgb(0,0,0);
+	}
+div.lee{
+	background-color: #bfccff;
+	border: red;
+	padding: 50px 50px;
+	margin: 20px 290px 20px 290px;
+	font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+	text-align: center;
+	color: rgb(0,0,0);
+	}
+div.sabrina{
+	background-color: #bfccff;
+	border: red;
+	padding: 50px 50px;
+	margin: 20px 290px 20px 290px;
+	font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+	text-align: center;
+	color: rgb(0,0,0);
+	}
