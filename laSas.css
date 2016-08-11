@@ -169,11 +169,11 @@ div.carousel{
 	top: -125px;
 	}
 
-div.about{
-	padding:20px;
-	margin: 20px 300px 20px 300px;
+#about{
+	padding:5px;
+	margin: 30px 300px 20px 300px;
 	position: relative; 
-	top: -125px;
+	top: -140px;
 	background-color: rgb(255,182,193);
 
 	
