@@ -7,9 +7,10 @@ RED = (255, 0, 0)
 BLUE = (0, 0, 255)
 GREY = (127, 127, 127)
 YELLOW= (255,255,0)
+GREEN= (0,255,0)
 # This sets the WIDTH and HEIGHT of each grid location
-WIDTH = 53
-HEIGHT = 62
+WIDTH =53
+HEIGHT =62
  
 MARGIN = 1
 grid = []
@@ -50,6 +51,7 @@ class Player(pygame.sprite.Sprite):
         self.last_move=last_move
     def draw(self):
         pygame.draw.circle(screen,BLUE,(self.rect.x,self.rect.y),10)
+        #print(self.rect.x, self.rect.y)
         # print("draw")
         # print(self.rect.x)
         # print(self.rect.y)
@@ -94,9 +96,10 @@ class Player(pygame.sprite.Sprite):
 
 
 class Coins():
-        def __init__(self, x_pos, y_pos):
+        def __init__(self, x_pos, y_pos, color):
             self.x_pos= x_pos
             self.y_pos= y_pos
+            self.color=color 
             #self.Coins_list=[]
     # self.value= value 
         def returnx_pos():
@@ -110,7 +113,7 @@ class Coins():
            # if self.x_pos=Player.x_point and self.y_pos=Player.y_point;
            return True
         def draw(self):
-            pygame.draw.circle(screen, YELLOW, (self.x_pos, self.y_pos), 10, 0)
+            pygame.draw.circle(screen, self.color, (self.x_pos, self.y_pos), 10, 0)
 
 
 
@@ -140,17 +143,18 @@ player1=Player(670,470,"none")
 
 
 
-Coin1=Coins(40, 50)
-Coin2=Coins(20, 600)
-Coin3=Coins(400, 220)
-Coin4= Coins(200, 300)
-Coin5=Coins(500,30)
-Coin6=Coins(300,20)
-Coin7=Coins (200, 400)
-Coin8=Coins(680,220)
-Coin9=Coins(600,600)
-Coin10=Coins(500, 300)
-Coin11=Coins(30, 400)
+Coin1=Coins(34, 36, YELLOW)
+Coin2=Coins(20, 600, YELLOW)
+Coin3=Coins(405, 222, YELLOW)
+Coin4= Coins(193, 284, YELLOW)
+Coin5=Coins(511,36, YELLOW)
+Coin6=Coins(299,36, YELLOW)
+Coin7=Coins (193, 408, YELLOW)
+Coin8=Coins(670,222, YELLOW)
+Coin9=Coins(600,600, YELLOW)
+Coin10=Coins(511, 284, YELLOW)
+Coin11=Coins(34, 408, YELLOW)
+Coin12=Coins(670,36, YELLOW)
 
 wall1=Obstacle(595, 380, 106, 60,BLACK)
 wall2=Obstacle(488, 380, 106, 60,BLACK)
@@ -210,7 +214,7 @@ while not done:
         if event.type == pygame.KEYDOWN:
                 # flag = False
                 if len(collision) == 0: 
-                    print(len(collision))
+                    #print(len(collision))
 
                     if event.key == pygame.K_UP:
                         player1.moveup()
@@ -222,7 +226,7 @@ while not done:
                         player1.moveright()
  
         if len(collision) == 1:
-            print(len(collision))
+            #print(len(collision))
             if player1.last_move == "up":
                 player1.movedown()
             elif player1.last_move == "down":
@@ -264,6 +268,7 @@ while not done:
     Coin9.draw()
     Coin10.draw()
     Coin11.draw()
+    Coin12.draw()
 
     wall1.draw()   
     wall2.draw()
