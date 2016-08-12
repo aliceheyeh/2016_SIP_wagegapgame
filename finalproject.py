@@ -55,7 +55,10 @@ class Player(pygame.sprite.Sprite):
     def draw(self):
 
         reshma=pygame.image.load("reshma.png")
-        screen.blit(reshma,(self.rect.x-(self.rect.width)/2,self.rect.y-(self.rect.height)/2))
+        reshmax = self.rect.x+(self.rect.width)/2 - (WIDTH /2)
+        reshmay = self.rect.y - (HEIGHT / 2)
+
+        screen.blit(reshma,(reshmax,reshmay))
 
         # pygame.draw.circle(screen,BLUE,(self.rect.x,self.rect.y),10)
         #print(self.rect.x, self.rect.y)
