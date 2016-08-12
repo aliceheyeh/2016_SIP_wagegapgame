@@ -7,9 +7,13 @@ RED = (255, 0, 0)
 BLUE = (0, 0, 255)
 GREY = (127, 127, 127)
 YELLOW= (255,255,0)
+GREEN= (0,255,0)
+AQUA=(128,0,128)
+PURPLE=(32,178,170)
+PINK=(255,187,255)
 # This sets the WIDTH and HEIGHT of each grid location
-WIDTH = 53
-HEIGHT = 62
+WIDTH =53
+HEIGHT =62
  
 MARGIN = 1
 grid = []
@@ -49,7 +53,11 @@ class Player(pygame.sprite.Sprite):
         self.rect.y=y_point
         self.last_move=last_move
     def draw(self):
-        pygame.draw.circle(screen,BLUE,(self.rect.x,self.rect.y),10)
+        reshma=pygame.image.load("reshma.png")
+        screen.blit(reshma,(self.rect.x-(self.rect.width)/2,self.rect.y-(self.rect.height)/2))
+
+        # pygame.draw.circle(screen,BLUE,(self.rect.x,self.rect.y),10)
+        #print(self.rect.x, self.rect.y)
         # print("draw")
         # print(self.rect.x)
         # print(self.rect.y)
@@ -93,24 +101,27 @@ class Player(pygame.sprite.Sprite):
 
 
 
-class Coins():
-        def __init__(self, x_pos, y_pos):
-            self.x_pos= x_pos
-            self.y_pos= y_pos
-            #self.Coins_list=[]
-    # self.value= value 
-        def returnx_pos():
-            return x_pos 
-        def returny_pos():
-            return y_pos 
+class Coins(pygame.sprite.Sprite):
+    def __init__(self, x_pos, y_pos, color):
+        super().__init__()
+        self.color=color 
+        self.image=pygame.Surface([width,height])
+        self.image.fill(self.color)
+        self.rect=self.image.get_rect()
+        self.rect.x=x_pos
+        self.rect.y=y_pos
+    def returnx_pos():
+        return x_pos 
+    def returny_pos():
+        return y_pos 
     #def returnvalue ():
         #return value
 
-        def disappear (self):
+    def disappear (self):
            # if self.x_pos=Player.x_point and self.y_pos=Player.y_point;
-           return True
-        def draw(self):
-            pygame.draw.circle(screen, YELLOW, (self.x_pos, self.y_pos), 10, 0)
+        return True
+    def draw(self):
+        pygame.draw.circle(screen, self.color, (self.rect.x, self.rect.y), 10, 0)
 
 
 
@@ -140,37 +151,38 @@ player1=Player(670,470,"none")
 
 
 
-Coin1=Coins(40, 50)
-Coin2=Coins(20, 600)
-Coin3=Coins(400, 220)
-Coin4= Coins(200, 300)
-Coin5=Coins(500,30)
-Coin6=Coins(300,20)
-Coin7=Coins (200, 400)
-Coin8=Coins(680,220)
-Coin9=Coins(600,600)
-Coin10=Coins(500, 300)
-Coin11=Coins(30, 400)
+Coin1=Coins(34, 36, GREEN)
+Coin2=Coins(20, 600, GREEN)
+Coin3=Coins(405, 222, GREEN)
+Coin4= Coins(193, 284, GREEN)
+Coin5=Coins(511,36, GREEN)
+Coin6=Coins(299,36, YELLOW)
+Coin7=Coins (193, 408, GREEN)
+Coin8=Coins(670,222, GREEN)
+Coin9=Coins(600,600, GREEN)
+Coin10=Coins(511, 284, GREEN)
+Coin11=Coins(34, 408, GREEN)
+Coin12=Coins(670,36, GREEN)
 
-wall1=Obstacle(595, 380, 106, 60,BLACK)
-wall2=Obstacle(488, 380, 106, 60,BLACK)
-wall3=Obstacle(272, 379, 106, 60,BLACK)
-wall4=Obstacle(325, 438, 53, 60,BLACK)
-wall5=Obstacle(272, 318, 106, 60,BLACK)
-wall6=Obstacle(542, 191, 106, 124,BLACK)
-wall7=Obstacle(542, 65, 106, 60,BLACK)
-wall8=Obstacle(380, 2, 106, 124,BLACK)
-wall9=Obstacle(433, 127, 53, 63,BLACK)
-wall10=Obstacle(164, 65, 216, 61,BLACK)
-wall11=Obstacle(2, 65, 106, 124,BLACK)
-wall12=Obstacle(161, 190, 216, 63,BLACK)
-wall13=Obstacle(55, 318, 106, 124,BLACK)
-wall14=Obstacle(0,0, 10, 500, BLACK)
-wall15=Obstacle(690, 0, 40, 500, BLACK)
-wall16=Obstacle(0, (10-20), 700, 20, BLACK)
-wall17=Obstacle(0, 490, 700, 50, BLACK)
+wall1=Obstacle(595, 380, 106, 60,PINK)
+wall2=Obstacle(488, 380, 106, 60,PINK)
+wall3=Obstacle(272, 379, 106, 60,PINK)
+wall4=Obstacle(325, 438, 53, 60,PINK)
+wall5=Obstacle(272, 318, 106, 60,PINK)
+wall6=Obstacle(542, 191, 106, 124,PINK)
+wall7=Obstacle(542, 65, 106, 60,PINK)
+wall8=Obstacle(380, 2, 106, 124,PINK)
+wall9=Obstacle(433, 127, 53, 63,PINK)
+wall10=Obstacle(164, 65, 216, 61,PINK)
+wall11=Obstacle(2, 65, 106, 124,PINK)
+wall12=Obstacle(161, 190, 216, 63,PINK)
+wall13=Obstacle(55, 318, 106, 124,PINK)
+wall14=Obstacle(0,0, 10, 500, AQUA)
+wall15=Obstacle(690, 0, 40, 500, AQUA)
+wall16=Obstacle(0, (10-20), 700, 20, AQUA)
+wall17=Obstacle(0, 490, 700, 50, AQUA)
 
-
+group_Coins=pygame.sprite.Group(Coin1, Coin2, Coin3, Coin4, Coin5, Coin6, Coin7, Coin8, Coin9, Coin10, Coin11, Coin12)
 group_obstacles=pygame.sprite.Group(wall1,wall2,wall3,wall4,wall5,wall6,wall7,wall8,wall9,wall10,wall11,wall12,wall13,wall14, wall15,wall16,wall17)
 
 
@@ -205,12 +217,13 @@ while not done:
 
             
         collision = pygame.sprite.spritecollide(player1,group_obstacles,False)
+        
 
             
         if event.type == pygame.KEYDOWN:
                 # flag = False
                 if len(collision) == 0: 
-                    print(len(collision))
+                    #print(len(collision))
 
                     if event.key == pygame.K_UP:
                         player1.moveup()
@@ -221,17 +234,21 @@ while not done:
                     elif event.key == pygame.K_RIGHT:
                         player1.moveright()
  
+                
         if len(collision) == 1:
-            print(len(collision))
-            if player1.last_move == "up":
-                player1.movedown()
-            elif player1.last_move == "down":
-                player1.moveup()
-            elif player1.last_move == "right":
-                player1.moveleft()
-            elif player1.last_move == "left":
-                player1.moveright()
+            #print(len(collision))
+                if player1.last_move == "up":
+                    player1.movedown()
+                elif player1.last_move == "down":
+                    player1.moveup()
+                elif player1.last_move == "right":
+                    player1.moveleft()
+                elif player1.last_move == "left":
+                    player1.moveright()
 
+
+        collision_coin = pygame.sprite.spritecollide(player1,group_Coins,True)
+        print(collision_coin)
 
             # Something similar for the up & down keys
     # Set the screen background
@@ -240,7 +257,7 @@ while not done:
     # Draw the grid
     for row in range(8):
         for column in range(13):
-            color = WHITE
+            color = PURPLE
             pygame.draw.rect(screen,
                              color,
                              [(MARGIN + WIDTH) * column + MARGIN,
@@ -248,22 +265,11 @@ while not done:
                               WIDTH,
                               HEIGHT])
     
+    
+    group_Coins.draw(screen)
+
+
     player1.draw()
-   
-
-
-    Coin1.draw()
-    Coin2.draw()
-    Coin3.draw()
-    Coin4.draw()
-    Coin5.draw()
-    Coin6.draw()
-
-    Coin7.draw()
-    Coin8.draw()
-    Coin9.draw()
-    Coin10.draw()
-    Coin11.draw()
 
     wall1.draw()   
     wall2.draw()
