@@ -63,7 +63,7 @@ class Player(pygame.sprite.Sprite):
         reshmay=self.rect.y-(HEIGHT/2)
         # pygame.draw.circle(screen,BLUE,(self.rect.x,self.rect.y),10)
         screen.blit(reshma, (reshmax,reshmay))
-        print(self.rect.x, self.rect.y)
+        #print(self.rect.x, self.rect.y)
 
         # print("draw")
         # print(self.rect.x)
@@ -236,6 +236,10 @@ done = False
 clock = pygame.time.Clock()
 x_pos=670
 y_pos=470
+score=0
+bar1=Obstacle(164, 65, 213, 62,GREEN)
+myfont = pygame.font.SysFont("monospace", 20)
+label = myfont.render("Wage Gap", 1, (0,0,0))
 
 # -------- Main Program Loop -----------
 while not done:
@@ -292,10 +296,13 @@ while not done:
         
 =======
        # print(collision_coin)
-
-
         
-    
+        if len(collision_coin)==1:
+            score+=1
+            bar1.width+=11
+            
+       
+            
         
         
             #if (xposition>=(405):
@@ -353,7 +360,14 @@ while not done:
     wall16.draw()
     wall17.draw()
     
-    
+        
+    bar1.draw()
+    screen.blit(label, (388, 20))
+
+    if bar1.width==323:
+        myfont = pygame.font.SysFont("Impact", 45)
+        finish = myfont.render("You filled the wage gap!", 1, (0,0,0))
+        screen.blit(finish,(35,250))
    # Limit to 60 frames per second
     clock.tick(60)
     # Go ahead and update the screen with what we've drawn.
