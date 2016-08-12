@@ -51,7 +51,7 @@ class Player(pygame.sprite.Sprite):
         self.last_move=last_move
     def draw(self):
         pygame.draw.circle(screen,BLUE,(self.rect.x,self.rect.y),10)
-        #print(self.rect.x, self.rect.y)
+        # print(self.rect.x, self.rect.y)
         # print("draw")
         # print(self.rect.x)
         # print(self.rect.y)
@@ -108,12 +108,7 @@ class Coins(pygame.sprite.Sprite):
         return x_pos 
     def returny_pos():
         return y_pos 
-    #def returnvalue ():
-        #return value
-
-    def disappear (self):
-           # if self.x_pos=Player.x_point and self.y_pos=Player.y_point;
-        return True
+    
     def draw(self):
         pygame.draw.circle(screen, self.color, (self.rect.x, self.rect.y), 10, 0)
 
@@ -186,9 +181,7 @@ group_obstacles=pygame.sprite.Group(wall1,wall2,wall3,wall4,wall5,wall6,wall7,wa
 
 # Loop until the user clicks the close button.
 done = False
-# flag = True
-# x_player = 0
-# y_player = 0
+
  
 # Used to manage how fast the screen updates
 clock = pygame.time.Clock()
@@ -215,9 +208,9 @@ while not done:
 
             
         if event.type == pygame.KEYDOWN:
-                # flag = False
+                
                 if len(collision) == 0: 
-                    #print(len(collision))
+                    # print(len(collision))
 
                     if event.key == pygame.K_UP:
                         player1.moveup()
@@ -230,7 +223,7 @@ while not done:
  
                 
         if len(collision) == 1:
-            #print(len(collision))
+            # print(len(collision))
                 if player1.last_move == "up":
                     player1.movedown()
                 elif player1.last_move == "down":
