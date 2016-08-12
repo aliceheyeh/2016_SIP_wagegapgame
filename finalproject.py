@@ -17,7 +17,7 @@ HEIGHT =62
 
 x_position=140
 
-dx=6
+dx=5
 
 MARGIN = 1
 grid = []
@@ -109,7 +109,11 @@ class Bill(pygame.sprite.Sprite):
         self.rect.x=x_position
         self.rect.y=y_position
     def draw(self):
-        pygame.draw.circle(screen,BLUE,(self.rect.x,self.rect.y),30)
+        bill=pygame.image.load("bill.png")
+        billx=self.rect.x+(self.rect.width)/2 -(WIDTH/2)
+        billy=self.rect.y-(HEIGHT/2)
+        # pygame.draw.circle(screen,BLUE,(self.rect.x,self.rect.y),10)
+        screen.blit(bill, (billx,billy))
     
     def move(self):
         self.rect.x=self.rect.x + dx
