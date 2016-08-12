@@ -184,4 +184,23 @@ body {
 	background-attachment:fixed ;
 }
 
+#susie:hover{
+	font-family: "Comic Sans MS", cursive, sans-serif;
+}
 
+#lee:hover{
+	font-family: "Lucida Bright", Georgia, serif;
+}
+#alice:hover{
+	font-family: "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+}
+#ic2:hover{
+	font-family: "Rockwell Extra Bold", "Rockwell Bold", monospace;
+}
+
+#sabrina:hover{
+	font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+#quack:hover{
+	font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
+}
