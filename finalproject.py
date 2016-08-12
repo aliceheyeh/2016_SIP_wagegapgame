@@ -140,7 +140,7 @@ player1=Player(670,470,"none")
 
 
 
-Coin1=Coins(30, 50)
+Coin1=Coins(40, 50)
 Coin2=Coins(20, 600)
 Coin3=Coins(400, 220)
 Coin4= Coins(200, 300)
@@ -165,9 +165,13 @@ wall10=Obstacle(164, 65, 216, 61,BLACK)
 wall11=Obstacle(2, 65, 106, 124,BLACK)
 wall12=Obstacle(161, 190, 216, 63,BLACK)
 wall13=Obstacle(55, 318, 106, 124,BLACK)
+wall14=Obstacle(0,0, 10, 500, BLACK)
+wall15=Obstacle(690, 0, 40, 500, BLACK)
+wall16=Obstacle(0, (10-20), 700, 20, BLACK)
+wall17=Obstacle(0, 490, 700, 50, BLACK)
 
 
-group_obstacles=pygame.sprite.Group(wall1,wall2,wall3,wall4,wall5,wall6,wall7,wall8,wall9,wall10,wall11,wall12,wall13)
+group_obstacles=pygame.sprite.Group(wall1,wall2,wall3,wall4,wall5,wall6,wall7,wall8,wall9,wall10,wall11,wall12,wall13,wall14, wall15,wall16,wall17)
 
 
 
@@ -202,11 +206,14 @@ while not done:
             
         collision = pygame.sprite.spritecollide(player1,group_obstacles,False)
         print (collision)
+        # print(player1.last_move)
+        print(len(group_obstacles))
         
             
         if event.type == pygame.KEYDOWN:
                 # flag = False
                 if len(collision) == 0: 
+                    print(len(collision))
 
                     if event.key == pygame.K_UP:
                         player1.moveup()
@@ -218,6 +225,7 @@ while not done:
                         player1.moveright()
  
         if len(collision) == 1:
+            print(len(collision))
             if player1.last_move == "up":
                 player1.movedown()
             elif player1.last_move == "down":
@@ -226,6 +234,7 @@ while not done:
                 player1.moveleft()
             elif player1.last_move == "left":
                 player1.moveright()
+
 
             #     flag = True 
             #     bre
@@ -281,12 +290,16 @@ while not done:
     wall6.draw()
     wall7.draw()
     wall8.draw()
-
     wall9.draw()
     wall10.draw()
     wall11.draw()
     wall12.draw()
     wall13.draw()
+    wall14.draw()
+    wall15.draw()
+    wall16.draw()
+    wall17.draw()
+    
     
    # Limit to 60 frames per second
     clock.tick(60)
