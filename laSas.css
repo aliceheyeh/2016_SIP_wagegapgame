@@ -178,5 +178,10 @@ div.carousel{
 
 	
 }
+body {
+	background-image: url("splat.png");
+	background-repeat: no-repeat;
+	background-attachment:fixed ;
+}
 
 
