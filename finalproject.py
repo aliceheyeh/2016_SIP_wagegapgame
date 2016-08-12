@@ -162,7 +162,7 @@ class Obstacle(pygame.sprite.Sprite):
 
     def draw(self):
         pygame.draw.rect(screen, self.color, [self.rect.x, self.rect.y, self.width, self.height])
-        pygame.draw.circle(screen, BLACK, (140,160), 10, 0)
+       
 
 #class societyCircle(self):
     #def __init__(self, x_pos, y_pos):
@@ -292,9 +292,7 @@ while not done:
 
 
         collision_coin = pygame.sprite.spritecollide(player1,group_Coins,True)
-<<<<<<< HEAD
-        
-=======
+
        # print(collision_coin)
         
         if len(collision_coin)==1:
@@ -311,7 +309,7 @@ while not done:
                 
 
 
->>>>>>> f965e99a4e36233e3ac8e8494167b79c02a03c44
+
 
             # Something similar for the up & down keys
     # Set the screen background
