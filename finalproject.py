@@ -14,7 +14,11 @@ PINK=(255,187,255)
 # This sets the WIDTH and HEIGHT of each grid location
 WIDTH =53
 HEIGHT =62
- 
+
+x_position=140
+
+dx=6
+
 MARGIN = 1
 grid = []
 for row in range(8):
@@ -37,6 +41,7 @@ screen = pygame.display.set_mode(WINDOW_SIZE)
 pygame.display.set_caption("Women")
 width = 20
 height = 20
+
 class Player(pygame.sprite.Sprite):
    
 
@@ -98,7 +103,26 @@ class Player(pygame.sprite.Sprite):
         # print("move")
         # print(self.rect.x)
         # print(self.rect.y)
+
+class Bill(pygame.sprite.Sprite):
+    def __init__(self, x_position,y_position, color):
+        self.image=pygame.Surface([width,height])
+        self.rect=self.image.get_rect()
+        self.color=color
+        self.rect.x=x_position
+        self.rect.y=y_position
+    def draw(self):
+        pygame.draw.circle(screen,BLUE,(self.rect.x,self.rect.y),30)
+    
+    def move(self):
+        self.rect.x=self.rect.x + dx
+        print(self.rect.x)
         
+    # def moveright(self):
+    #     self.rect.x=self.rect.x + dx
+    #     self.last_move="right"
+
+
 
 
 
@@ -146,8 +170,9 @@ class Obstacle(pygame.sprite.Sprite):
 
 
 
-player1=Player(670,470,"none")
 
+player1=Player(670,470,"none")
+boy=Bill(130,160,BLUE)
 
 
 
@@ -212,7 +237,11 @@ while not done:
     #     print (event.type)
         
         # elif event.type == pygame.KEYDOWN:
-
+    # if boy.rect.x>=140:
+    #     boy.moveright()
+    # if boy.rect.x<=405:
+    #     boy.moveleft()
+    
             
         collision = pygame.sprite.spritecollide(player1,group_obstacles,False)
         
@@ -246,10 +275,15 @@ while not done:
 
 
         collision_coin = pygame.sprite.spritecollide(player1,group_Coins,True)
-        print(collision_coin)
+        
 
             # Something similar for the up & down keys
     # Set the screen background
+    
+    boy.move()
+    if boy.rect.x<= (140-30) or boy.rect.x>=(405-30):
+        dx=dx*(-1)
+    
     screen.fill(BLACK)
  
     # Draw the grid
@@ -268,6 +302,9 @@ while not done:
 
 
     player1.draw()
+    boy.draw()
+
+
 
     wall1.draw()   
     wall2.draw()
