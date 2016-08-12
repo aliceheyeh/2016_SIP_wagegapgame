@@ -119,7 +119,7 @@ div.carousel{
 	padding: 50px 50px;
 	margin: 20px 290px 20px 290px;
 	font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
-	text-align: center;
+	text-align: left;
 	color: rgb(0,0,0);
 	position: relative; 
 	top: -125px;
@@ -130,7 +130,7 @@ div.carousel{
 	padding: 50px 50px;
 	margin: 20px 290px 20px 290px;
 	font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
-	text-align: center;
+	text-align: left;
 	color: rgb(0,0,0);
 	position: relative; 
 	top: -125px;
@@ -141,7 +141,7 @@ div.carousel{
 	padding: 50px 50px;
 	margin: 20px 290px 20px 290px;
 	font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
-	text-align: center;
+	text-align: right;
 	color: rgb(0,0,0);
 	position: relative; 
 	top: -125px;
@@ -152,7 +152,7 @@ div.carousel{
 	padding: 50px 50px;
 	margin: 20px 290px 20px 290px;
 	font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
-	text-align: center;
+	text-align: right;
 	color: rgb(0,0,0);
 	position: relative; 
 	top: -125px;
@@ -163,7 +163,7 @@ div.carousel{
 	padding: 50px 50px;
 	margin: 20px 290px 20px 290px;
 	font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
-	text-align: center;
+	text-align: right;
 	color: rgb(0,0,0);
 	position: relative; 
 	top: -125px;
