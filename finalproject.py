@@ -8,6 +8,9 @@ BLUE = (0, 0, 255)
 GREY = (127, 127, 127)
 YELLOW= (255,255,0)
 GREEN= (0,255,0)
+AQUA=(128,0,128)
+PURPLE=(32,178,170)
+PINK=(255,187,255)
 # This sets the WIDTH and HEIGHT of each grid location
 WIDTH =53
 HEIGHT =62
@@ -50,8 +53,13 @@ class Player(pygame.sprite.Sprite):
         self.rect.y=y_point
         self.last_move=last_move
     def draw(self):
-        pygame.draw.circle(screen,BLUE,(self.rect.x,self.rect.y),10)
-        # print(self.rect.x, self.rect.y)
+
+        reshma=pygame.image.load("reshma.png")
+        screen.blit(reshma,(self.rect.x-(self.rect.width)/2,self.rect.y-(self.rect.height)/2))
+
+        # pygame.draw.circle(screen,BLUE,(self.rect.x,self.rect.y),10)
+        #print(self.rect.x, self.rect.y)
+
         # print("draw")
         # print(self.rect.x)
         # print(self.rect.y)
@@ -153,23 +161,23 @@ Coin10=Coins(511, 284, GREEN)
 Coin11=Coins(34, 408, GREEN)
 Coin12=Coins(670,36, GREEN)
 
-wall1=Obstacle(595, 380, 106, 60,BLACK)
-wall2=Obstacle(488, 380, 106, 60,BLACK)
-wall3=Obstacle(272, 379, 106, 60,BLACK)
-wall4=Obstacle(325, 438, 53, 60,BLACK)
-wall5=Obstacle(272, 318, 106, 60,BLACK)
-wall6=Obstacle(542, 191, 106, 124,BLACK)
-wall7=Obstacle(542, 65, 106, 60,BLACK)
-wall8=Obstacle(380, 2, 106, 124,BLACK)
-wall9=Obstacle(433, 127, 53, 63,BLACK)
-wall10=Obstacle(164, 65, 216, 61,BLACK)
-wall11=Obstacle(2, 65, 106, 124,BLACK)
-wall12=Obstacle(161, 190, 216, 63,BLACK)
-wall13=Obstacle(55, 318, 106, 124,BLACK)
-wall14=Obstacle(0,0, 10, 500, BLACK)
-wall15=Obstacle(690, 0, 40, 500, BLACK)
-wall16=Obstacle(0, (10-20), 700, 20, BLACK)
-wall17=Obstacle(0, 490, 700, 50, BLACK)
+wall1=Obstacle(595, 380, 106, 60,PINK)
+wall2=Obstacle(488, 380, 106, 60,PINK)
+wall3=Obstacle(272, 379, 106, 60,PINK)
+wall4=Obstacle(325, 438, 53, 60,PINK)
+wall5=Obstacle(272, 318, 106, 60,PINK)
+wall6=Obstacle(542, 191, 106, 124,PINK)
+wall7=Obstacle(542, 65, 106, 60,PINK)
+wall8=Obstacle(380, 2, 106, 124,PINK)
+wall9=Obstacle(433, 127, 53, 63,PINK)
+wall10=Obstacle(164, 65, 216, 61,PINK)
+wall11=Obstacle(2, 65, 106, 124,PINK)
+wall12=Obstacle(161, 190, 216, 63,PINK)
+wall13=Obstacle(55, 318, 106, 124,PINK)
+wall14=Obstacle(0,0, 10, 500, AQUA)
+wall15=Obstacle(690, 0, 40, 500, AQUA)
+wall16=Obstacle(0, (10-20), 700, 20, AQUA)
+wall17=Obstacle(0, 490, 700, 50, AQUA)
 
 group_Coins=pygame.sprite.Group(Coin1, Coin2, Coin3, Coin4, Coin5, Coin6, Coin7, Coin8, Coin9, Coin10, Coin11, Coin12)
 group_obstacles=pygame.sprite.Group(wall1,wall2,wall3,wall4,wall5,wall6,wall7,wall8,wall9,wall10,wall11,wall12,wall13,wall14, wall15,wall16,wall17)
@@ -244,7 +252,7 @@ while not done:
     # Draw the grid
     for row in range(8):
         for column in range(13):
-            color = WHITE
+            color = PURPLE
             pygame.draw.rect(screen,
                              color,
                              [(MARGIN + WIDTH) * column + MARGIN,
