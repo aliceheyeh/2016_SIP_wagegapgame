@@ -45,7 +45,6 @@ class Player(pygame.sprite.Sprite):
     def __init__(self, x_point, y_point,last_move):
         # Make our top-left corner the passed-in location.
         pygame.sprite.Sprite.__init__(self)
-
         self.image=pygame.Surface([width,height])
         self.image.fill(BLUE)
         self.rect=self.image.get_rect()
@@ -55,13 +54,11 @@ class Player(pygame.sprite.Sprite):
     def draw(self):
 
         reshma=pygame.image.load("reshma.png")
-        reshmax = self.rect.x+(self.rect.width)/2 - (WIDTH /2)
-        reshmay = self.rect.y - (HEIGHT / 2)
-
-        screen.blit(reshma,(reshmax,reshmay))
-
+        reshmax=self.rect.x+(self.rect.width)/2 -(WIDTH/2)
+        reshmay=self.rect.y-(HEIGHT/2)
         # pygame.draw.circle(screen,BLUE,(self.rect.x,self.rect.y),10)
-        #print(self.rect.x, self.rect.y)
+        screen.blit(reshma, (reshmax,reshmay))
+        print(self.rect.x, self.rect.y)
 
         # print("draw")
         # print(self.rect.x)
@@ -96,7 +93,7 @@ class Player(pygame.sprite.Sprite):
         self.rect.x=x_point
         self.rect.y=y_point
         # print("move")
-        # print(self.rect.x)
+        #print(self.rect.x, self.rect.y)
         # print(self.rect.y)
         
 
@@ -141,7 +138,22 @@ class Obstacle(pygame.sprite.Sprite):
 
     def draw(self):
         pygame.draw.rect(screen, self.color, [self.rect.x, self.rect.y, self.width, self.height])
+        pygame.draw.circle(screen, BLACK, (140,160), 10, 0)
 
+#class societyCircle(self):
+    #def __init__(self, x_pos, y_pos):
+        #self.x_pos=x_pos
+        #self.y_pos=y_pos
+    #def returnx_pos():
+       # return x_pos 
+    #def returny_pos():
+        #return y_pos
+    #def draw(self):
+       
+    #def move (self):
+
+        
+   
 
 
 
@@ -151,18 +163,18 @@ player1=Player(670,470,"none")
 
 
 
-Coin1=Coins(34, 36, GREEN)
-Coin2=Coins(20, 600, GREEN)
-Coin3=Coins(405, 222, GREEN)
-Coin4= Coins(193, 284, GREEN)
-Coin5=Coins(511,36, GREEN)
-Coin6=Coins(299,36, YELLOW)
-Coin7=Coins (193, 408, GREEN)
-Coin8=Coins(670,222, GREEN)
-Coin9=Coins(600,600, GREEN)
-Coin10=Coins(511, 284, GREEN)
-Coin11=Coins(34, 408, GREEN)
-Coin12=Coins(670,36, GREEN)
+Coin1=Coins(25, 36, GREEN)
+Coin2=Coins(25, 595, GREEN)
+Coin3=Coins(395, 222, GREEN)
+Coin4= Coins(185, 284, GREEN)
+Coin5=Coins(506,36, GREEN)
+Coin6=Coins(294,36, YELLOW)
+Coin7=Coins (185, 408, GREEN)
+Coin8=Coins(660,222, GREEN)
+Coin9=Coins(595,600, GREEN)
+Coin10=Coins(509, 284, GREEN)
+Coin11=Coins(25, 408, GREEN)
+Coin12=Coins(660,36, GREEN)
 
 wall1=Obstacle(595, 380, 106, 60,PINK)
 wall2=Obstacle(488, 380, 106, 60,PINK)
@@ -181,6 +193,7 @@ wall14=Obstacle(0,0, 10, 500, AQUA)
 wall15=Obstacle(690, 0, 40, 500, AQUA)
 wall16=Obstacle(0, (10-20), 700, 20, AQUA)
 wall17=Obstacle(0, 490, 700, 50, AQUA)
+
 
 group_Coins=pygame.sprite.Group(Coin1, Coin2, Coin3, Coin4, Coin5, Coin6, Coin7, Coin8, Coin9, Coin10, Coin11, Coin12)
 group_obstacles=pygame.sprite.Group(wall1,wall2,wall3,wall4,wall5,wall6,wall7,wall8,wall9,wall10,wall11,wall12,wall13,wall14, wall15,wall16,wall17)
@@ -217,7 +230,7 @@ while not done:
         collision = pygame.sprite.spritecollide(player1,group_obstacles,False)
         
 
-            
+    
         if event.type == pygame.KEYDOWN:
                 
                 if len(collision) == 0: 
@@ -246,7 +259,19 @@ while not done:
 
 
         collision_coin = pygame.sprite.spritecollide(player1,group_Coins,True)
-        print(collision_coin)
+       # print(collision_coin)
+
+
+        
+    
+        
+        
+            #if (xposition>=(405):
+                
+           # if (xposition<=(140):
+                
+
+
 
             # Something similar for the up & down keys
     # Set the screen background
