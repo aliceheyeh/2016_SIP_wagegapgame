@@ -227,20 +227,7 @@ while not done:
             elif player1.last_move == "left":
                 player1.moveright()
 
-            #     flag = True 
-            #     bre
-                # print("current pos")
-                # print(player1.rect.x)
-                # print(player1.rect.y)
-                # print("old pos")
-                # print(x_player)
-                # print(y_player)
-          
-    # if flag == True:
-    #     print(flag) 
-    #     player1.move(x_player,y_player)
-    #     flag = False
-         
+            
             # Something similar for the up & down keys
     # Set the screen background
     screen.fill(BLACK)
