@@ -18,8 +18,8 @@ HEIGHT =62
 x_position=140
 # y_position=5
 
-dx=5
-dy=5
+dx=1
+dy=1
 
 MARGIN = 1
 grid = []
@@ -58,11 +58,16 @@ class Player(pygame.sprite.Sprite):
         self.rect.x=x_point
         self.rect.y=y_point
         self.last_move=last_move
+
     def draw(self):
 
         reshma=pygame.image.load("reshma.png")
         reshmax=self.rect.x+(self.rect.width)/2 -(WIDTH/2)
         reshmay=self.rect.y-(HEIGHT/2)
+
+        # print("Reshma dimensions")
+        # print(self.rect.width)
+        # print(self.rect.height)
         # pygame.draw.circle(screen,BLUE,(self.rect.x,self.rect.y),10)
         screen.blit(reshma, (reshmax,reshmay))
         #print(self.rect.x, self.rect.y)
@@ -113,8 +118,12 @@ class Bill(pygame.sprite.Sprite):
         self.rect.y=y_position
     def draw(self):
         bill=pygame.image.load("bill.png")
+        # pygame.draw.circle(screen, self.color, (self.rect.x, self.rect.y), 10, 0)
         billx=self.rect.x+(self.rect.width)/2 -(WIDTH/2)
         billy=self.rect.y-(HEIGHT/2)
+        # print("Bill dimensions")
+        # print(self.rect.width)
+        # print(self.rect.height)
         # pygame.draw.circle(screen,BLUE,(self.rect.x,self.rect.y),10)
         screen.blit(bill, (billx,billy))
     
@@ -227,7 +236,8 @@ wall17=Obstacle(0, 490, 700, 50, AQUA)
 
 group_Coins=pygame.sprite.Group(Coin1, Coin2, Coin3, Coin4, Coin5, Coin6, Coin7, Coin8, Coin9, Coin10, Coin11, Coin12)
 group_obstacles=pygame.sprite.Group(wall1,wall2,wall3,wall4,wall5,wall6,wall7,wall8,wall9,wall10,wall11,wall12,wall13,wall14, wall15,wall16,wall17)
-# group_bill=pygame.sprite.Group(player1)
+group_reshma=pygame.sprite.Group(player1)
+group_bill=pygame.sprite.Group(boy, man)
 
 
 
@@ -297,9 +307,10 @@ while not done:
 
 
         collision_coin = pygame.sprite.spritecollide(player1,group_Coins,True)
+        # collision_collision = pygame.sprite.spritecollide(player1,group_bill,True)
 
-        # collision_bill = pygame.sprite.spritecollide(boy,group_bill,True)
-        # print (collision_bill)
+        collision_collision = pygame.sprite.groupcollide(group_reshma,group_bill,True,False)
+        print (collision_collision)
 
         # if len(collision_bill)==
 
@@ -346,11 +357,18 @@ while not done:
     
     
     group_Coins.draw(screen)
-
-
-    player1.draw()
-    boy.draw()
-    man.draw()
+    # pygame.sprite.Group.sprites
+    # list_bill=pygame.group_bill.sprites()
+    # for bill in list_bill:
+    #     bill.draw()
+    # group_bill.draw(screen)
+    for bill in group_bill.sprites():
+        bill.draw()
+        
+    for reshma in group_reshma.sprites():
+        reshma.draw()
+    # boy.draw()
+    # man.draw()
 
 
 
