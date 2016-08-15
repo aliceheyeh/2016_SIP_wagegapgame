@@ -204,3 +204,14 @@ body {
 #quack:hover{
 	font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
 }
+#fightmelee{
+	background-color: rgb(255,182,193);
+    border: red;
+	padding: 50px 50px;
+	margin: 20px 290px 20px 290px;
+	font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+	text-align: right;
+	color: rgb(0,0,0);
+	position: relative; 
+	top: -350px;
+}

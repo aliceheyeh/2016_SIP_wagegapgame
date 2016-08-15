@@ -130,6 +130,7 @@ class Bill(pygame.sprite.Sprite):
     def movex(self):
         self.rect.x=self.rect.x + dx
 
+
         # self.rect.y=self.rect.y + dx
     def movey(self):
         self.rect.y=self.rect.y + dy
@@ -240,6 +241,10 @@ group_reshma=pygame.sprite.Group(player1)
 group_bill=pygame.sprite.Group(boy, man)
 
 
+# group_Bill=pygame.sprite.Group(boy)
+
+# group_bill=pygame.sprite.Group(player1)
+
 
 
 
@@ -277,8 +282,6 @@ while not done:
              
         collision = pygame.sprite.spritecollide(player1,group_obstacles,False)
         
-
-    
         if event.type == pygame.KEYDOWN:
                 
                 if len(collision) == 0: 
@@ -309,8 +312,13 @@ while not done:
         collision_coin = pygame.sprite.spritecollide(player1,group_Coins,True)
         # collision_collision = pygame.sprite.spritecollide(player1,group_bill,True)
 
+
         collision_collision = pygame.sprite.groupcollide(group_reshma,group_bill,True,False)
-        print (collision_collision)
+
+
+
+        # collision_bill = pygame.sprite.spritecollide(boy,group_bill,True)
+        # print (collision_bill)
 
         # if len(collision_bill)==
 
