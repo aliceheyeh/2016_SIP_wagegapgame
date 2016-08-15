@@ -18,8 +18,8 @@ HEIGHT =62
 x_position=140
 # y_position=5
 
-dx=1
-dy=1
+dx=7
+dy=7
 
 MARGIN = 1
 grid = []
@@ -58,6 +58,8 @@ class Player(pygame.sprite.Sprite):
         self.rect.x=x_point
         self.rect.y=y_point
         self.last_move=last_move
+        # self.rect.width=40
+        # self.rect.height=60
 
     def draw(self):
 
@@ -116,6 +118,8 @@ class Bill(pygame.sprite.Sprite):
         self.color=color
         self.rect.x=x_position
         self.rect.y=y_position
+        self.rect.width=40
+        self.rect.height=60
     def draw(self):
         bill=pygame.image.load("bill.png")
         # pygame.draw.circle(screen, self.color, (self.rect.x, self.rect.y), 10, 0)
@@ -200,7 +204,7 @@ class Obstacle(pygame.sprite.Sprite):
 
 player1=Player(670,470,"none")
 boy=Bill(130,160,BLUE)
-man=Bill(511,70,BLUE)
+man=Bill(500,70,BLUE)
 
 
 Coin1=Coins(25, 36, GREEN)
@@ -309,25 +313,26 @@ while not done:
                     player1.moveright()
 
 
-        collision_coin = pygame.sprite.spritecollide(player1,group_Coins,True)
-        # collision_collision = pygame.sprite.spritecollide(player1,group_bill,True)
+    collision_coin = pygame.sprite.spritecollide(player1,group_Coins,True)
+    # collision_collision = pygame.sprite.spritecollide(player1,group_bill,True)
 
 
-        collision_collision = pygame.sprite.groupcollide(group_reshma,group_bill,True,False)
+    collision_collision = pygame.sprite.groupcollide(group_reshma,group_bill,True,False)
+    print(len(collision_collision))
 
 
 
-        # collision_bill = pygame.sprite.spritecollide(boy,group_bill,True)
-        # print (collision_bill)
+    # collision_bill = pygame.sprite.spritecollide(boy,group_bill,True)
+    # print (collision_bill)
 
-        # if len(collision_bill)==
+    # if len(collision_bill)==
 
-       # print(collision_coin)
+   # print(collision_coin)
+    
+    if len(collision_coin)==1:
+        score+=1
+        bar1.width+=11
         
-        if len(collision_coin)==1:
-            score+=1
-            bar1.width+=11
-            
        
             
         
