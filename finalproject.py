@@ -113,7 +113,7 @@ class Bill(pygame.sprite.Sprite):
     
     def move(self):
         self.rect.x=self.rect.x + dx
-        print(self.rect.x)
+        #print(self.rect.x)
         
     # def moveright(self):
     #     self.rect.x=self.rect.x + dx
@@ -222,9 +222,7 @@ wall17=Obstacle(0, 490, 700, 50, AQUA)
 
 group_Coins=pygame.sprite.Group(Coin1, Coin2, Coin3, Coin4, Coin5, Coin6, Coin7, Coin8, Coin9, Coin10, Coin11, Coin12)
 group_obstacles=pygame.sprite.Group(wall1,wall2,wall3,wall4,wall5,wall6,wall7,wall8,wall9,wall10,wall11,wall12,wall13,wall14, wall15,wall16,wall17)
-
-
-
+# group_Bill=pygame.sprite.Group(boy)
 
 
 
@@ -262,8 +260,6 @@ while not done:
             
         collision = pygame.sprite.spritecollide(player1,group_obstacles,False)
         
-
-    
         if event.type == pygame.KEYDOWN:
                 
                 if len(collision) == 0: 
@@ -292,7 +288,7 @@ while not done:
 
 
         collision_coin = pygame.sprite.spritecollide(player1,group_Coins,True)
-
+        
        # print(collision_coin)
         
         if len(collision_coin)==1:
