@@ -285,6 +285,8 @@ while not done:
     
              
         collision = pygame.sprite.spritecollide(player1,group_obstacles,False)
+
+
         
         if event.type == pygame.KEYDOWN:
                 
@@ -318,7 +320,9 @@ while not done:
 
 
     collision_collision = pygame.sprite.groupcollide(group_reshma,group_bill,True,False)
-    print(len(collision_collision))
+    # print(len(collision_collision))
+    if len(collision_collision) == 1:
+            pygame.quit()
 
 
 
@@ -378,8 +382,10 @@ while not done:
     for bill in group_bill.sprites():
         bill.draw()
         
+        
     for reshma in group_reshma.sprites():
         reshma.draw()
+        
     # boy.draw()
     # man.draw()
 
