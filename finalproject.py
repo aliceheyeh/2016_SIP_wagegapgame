@@ -16,8 +16,10 @@ WIDTH =53
 HEIGHT =62
 
 x_position=140
+# y_position=5
 
-dx=6
+dx=5
+dy=5
 
 MARGIN = 1
 grid = []
@@ -103,28 +105,32 @@ class Player(pygame.sprite.Sprite):
 
 class Bill(pygame.sprite.Sprite):
     def __init__(self, x_position,y_position, color):
+        super().__init__()
         self.image=pygame.Surface([width,height])
         self.rect=self.image.get_rect()
         self.color=color
         self.rect.x=x_position
         self.rect.y=y_position
     def draw(self):
-        pygame.draw.circle(screen,BLUE,(self.rect.x,self.rect.y),30)
+        bill=pygame.image.load("bill.png")
+        billx=self.rect.x+(self.rect.width)/2 -(WIDTH/2)
+        billy=self.rect.y-(HEIGHT/2)
+        # pygame.draw.circle(screen,BLUE,(self.rect.x,self.rect.y),10)
+        screen.blit(bill, (billx,billy))
     
-    def move(self):
+    def movex(self):
         self.rect.x=self.rect.x + dx
+
+
+        # self.rect.y=self.rect.y + dx
+    def movey(self):
+        self.rect.y=self.rect.y + dy
+
         #print(self.rect.x)
         
     # def moveright(self):
     #     self.rect.x=self.rect.x + dx
     #     self.last_move="right"
-
-
-
-
-
-
-
 
 
 class Coins(pygame.sprite.Sprite):
@@ -185,7 +191,7 @@ class Obstacle(pygame.sprite.Sprite):
 
 player1=Player(670,470,"none")
 boy=Bill(130,160,BLUE)
-
+man=Bill(511,70,BLUE)
 
 
 Coin1=Coins(25, 36, GREEN)
@@ -222,7 +228,11 @@ wall17=Obstacle(0, 490, 700, 50, AQUA)
 
 group_Coins=pygame.sprite.Group(Coin1, Coin2, Coin3, Coin4, Coin5, Coin6, Coin7, Coin8, Coin9, Coin10, Coin11, Coin12)
 group_obstacles=pygame.sprite.Group(wall1,wall2,wall3,wall4,wall5,wall6,wall7,wall8,wall9,wall10,wall11,wall12,wall13,wall14, wall15,wall16,wall17)
+
 # group_Bill=pygame.sprite.Group(boy)
+
+# group_bill=pygame.sprite.Group(player1)
+
 
 
 
@@ -257,7 +267,7 @@ while not done:
     # if boy.rect.x<=405:
     #     boy.moveleft()
     
-            
+             
         collision = pygame.sprite.spritecollide(player1,group_obstacles,False)
         
         if event.type == pygame.KEYDOWN:
@@ -288,7 +298,13 @@ while not done:
 
 
         collision_coin = pygame.sprite.spritecollide(player1,group_Coins,True)
-        
+
+
+        # collision_bill = pygame.sprite.spritecollide(boy,group_bill,True)
+        # print (collision_bill)
+
+        # if len(collision_bill)==
+
        # print(collision_coin)
         
         if len(collision_coin)==1:
@@ -310,9 +326,12 @@ while not done:
             # Something similar for the up & down keys
     # Set the screen background
     
-    boy.move()
+    boy.movex()
+    man.movey()    
     if boy.rect.x<= (140-30) or boy.rect.x>=(405-30):
         dx=dx*(-1)
+    if man.rect.y<= (36+30) or man.rect.y>=(346-30):
+        dy=dy*(-1)
     
     screen.fill(BLACK)
  
@@ -333,6 +352,7 @@ while not done:
 
     player1.draw()
     boy.draw()
+    man.draw()
 
 
 
