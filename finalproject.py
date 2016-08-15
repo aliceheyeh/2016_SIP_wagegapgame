@@ -16,8 +16,10 @@ WIDTH =53
 HEIGHT =62
 
 x_position=140
+# y_position=5
 
 dx=5
+dy=5
 
 MARGIN = 1
 grid = []
@@ -115,10 +117,11 @@ class Bill(pygame.sprite.Sprite):
         # pygame.draw.circle(screen,BLUE,(self.rect.x,self.rect.y),10)
         screen.blit(bill, (billx,billy))
     
-    def move(self):
+    def movex(self):
         self.rect.x=self.rect.x + dx
-        print(self.rect.x)
-        
+        # self.rect.y=self.rect.y + dx
+    def movey(self):
+        self.rect.y=self.rect.y + dy
     # def moveright(self):
     #     self.rect.x=self.rect.x + dx
     #     self.last_move="right"
@@ -189,7 +192,7 @@ class Obstacle(pygame.sprite.Sprite):
 
 player1=Player(670,470,"none")
 boy=Bill(130,160,BLUE)
-
+man=Bill(511,70,BLUE)
 
 
 Coin1=Coins(25, 36, GREEN)
@@ -318,9 +321,12 @@ while not done:
             # Something similar for the up & down keys
     # Set the screen background
     
-    boy.move()
+    boy.movex()
+    man.movey()    
     if boy.rect.x<= (140-30) or boy.rect.x>=(405-30):
         dx=dx*(-1)
+    if man.rect.y<= (36+30) or man.rect.y>=(346-30):
+        dy=dy*(-1)
     
     screen.fill(BLACK)
  
@@ -341,6 +347,7 @@ while not done:
 
     player1.draw()
     boy.draw()
+    man.draw()
 
 
 
