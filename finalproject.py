@@ -103,6 +103,7 @@ class Player(pygame.sprite.Sprite):
 
 class Bill(pygame.sprite.Sprite):
     def __init__(self, x_position,y_position, color):
+        super().__init__()
         self.image=pygame.Surface([width,height])
         self.rect=self.image.get_rect()
         self.color=color
@@ -113,18 +114,11 @@ class Bill(pygame.sprite.Sprite):
     
     def move(self):
         self.rect.x=self.rect.x + dx
-        print(self.rect.x)
+        #print(self.rect.x)
         
     # def moveright(self):
     #     self.rect.x=self.rect.x + dx
     #     self.last_move="right"
-
-
-
-
-
-
-
 
 
 class Coins(pygame.sprite.Sprite):
@@ -222,7 +216,7 @@ wall17=Obstacle(0, 490, 700, 50, AQUA)
 
 group_Coins=pygame.sprite.Group(Coin1, Coin2, Coin3, Coin4, Coin5, Coin6, Coin7, Coin8, Coin9, Coin10, Coin11, Coin12)
 group_obstacles=pygame.sprite.Group(wall1,wall2,wall3,wall4,wall5,wall6,wall7,wall8,wall9,wall10,wall11,wall12,wall13,wall14, wall15,wall16,wall17)
-
+# group_bill=pygame.sprite.Group(player1)
 
 
 
@@ -259,7 +253,7 @@ while not done:
     # if boy.rect.x<=405:
     #     boy.moveleft()
     
-            
+             
         collision = pygame.sprite.spritecollide(player1,group_obstacles,False)
         
 
@@ -292,6 +286,11 @@ while not done:
 
 
         collision_coin = pygame.sprite.spritecollide(player1,group_Coins,True)
+
+        # collision_bill = pygame.sprite.spritecollide(boy,group_bill,True)
+        # print (collision_bill)
+
+        # if len(collision_bill)==
 
        # print(collision_coin)
         
